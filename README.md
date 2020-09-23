@@ -49,10 +49,40 @@ villes et le réseau routier qui les lient. On propose dans cet exercice d’imp
 > Un exemple de dijsktra en action, dans un contexte ou les distances entre les points sont toujours de "1".
 
 Explication de l’algorithme :
-Soit le réseau routier donné par la Figure 1. Les villes sont données par les nœuds (A-G, E, S). Chaque route
+Soit le réseau routier donné par la *Figure 1*. Les villes sont données par les nœuds (A-G, E, S). Chaque route
 est représentée par un arc orientée qui donne le sens de circulation et la distance entre les deux villes
 connectés. On cherche à travers cet exemple de trouver le plus court chemin de la ville E à S.
 
+![reseau_routier](./images/ex_reseau_routier.png)
+
+
+Pour résoudre ce problème, Dijkstra s’est basé sur le principe suivant : Si le court chemin de  <img src="https://render.githubusercontent.com/render/math?math=E"> à  <img src="https://render.githubusercontent.com/render/math?math=S"> passe respectivement par deux villes notées <img src="https://render.githubusercontent.com/render/math?math=S_1"> et <img src="https://render.githubusercontent.com/render/math?math=S_2"> alors le segment qui lie  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à  <img src="https://render.githubusercontent.com/render/math?math=S_2"> est le plus court chemin de  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à <img src="https://render.githubusercontent.com/render/math?math=S_2">. Le plus court chemin peut être ainsi construit de proche en proche en choisissant à chaque étape un sommet  <img src="https://render.githubusercontent.com/render/math?math=S_i"> tel que la longueur allant de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_i"> est connu être provisoirement la plus courte possible. 
+
+L’algorithme de Dijkstra est structuré suivant le pseudocode suivant :
+
+- Etape 1 (Phase d’initialisation) : On considère un tableau **distances** dont la taille est le nombre de nœuds du réseau; il représente la plus courte distance trouvée *jusqu’à maintenant* entre <img src="https://render.githubusercontent.com/render/math?math=E"> et ce nœud. On met la case correspondante au sommet <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=0"> (la distance entre <img src="https://render.githubusercontent.com/render/math?math=E"> et lui-même est nulle) et les autres à <img src="https://render.githubusercontent.com/render/math?math=-1"> pour dire qu’on n’a pas encore trouvé comment se rendre à ce nœud, et sera considéré comme une distance infinie dans l’algorithme. 
+
+- **nœuds** = l’ensemble de tous les nœuds 
+- **TANT QUE nœuds** n’est pas vide **FAIRE**
+  - Étape 2 : <img src="https://render.githubusercontent.com/render/math?math=S_1"> = trouver l’élément de **nœuds** le plus proche de **E** selon **distances**. 
+  - Étape 3 : **POUR** chaque **nœud** <img src="https://render.githubusercontent.com/render/math?math=S_2"> adjacent à <img src="https://render.githubusercontent.com/render/math?math=S_1"> **FAIRE**
+      - mettreAJourDistance (<img src="https://render.githubusercontent.com/render/math?math=S_1">, <img src="https://render.githubusercontent.com/render/math?math=S_2">), qui vérifie si passer par <img src="https://render.githubusercontent.com/render/math?math=S_1"> permet de réduire la longueur du trajet allant à <img src="https://render.githubusercontent.com/render/math?math=S_2">, et modifie distances si c’est le cas.
+  - Étape 4 : Enlever <img src="https://render.githubusercontent.com/render/math?math=S_1"> de **nœuds**; le tableau **distances** contient actuellement la distance
+minimale de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_1">. 
+    
+L’application pas à pas de l’algorithme sur l’exemple de la *Figure 1* est donnée par la *Figure 2*. Chaque ligne représente le même tableau **distances** (tableau 1D) à une itération différente de la boucle dans l’algorithme. Les cases en bleu (dont la valeur est omise sur la figure) conservent la valeur précédente, ce sont les cases où la distance est déjà minimale. La lettre entre parenthèses indique le sommet précédent duquel on arrive pour aller à ce nœud, et en gras est indiqué le nœud sélectionné comme étant le plus proche de **E** (à l’étape 2 de l’algorithme).  
+
+![exemple_algo](./images/exemple_algo_dijsktra.png)
+
+Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (lsite 2D); voir le fichier *ex1.py*, qui vous est fourni. La structure *Tableau* est utilisée pour représenter les données suivantes : 
+  - *distances* : distances des différents nœuds par rapport à la source. On attribue la valeur -1 pour un chemin pas encore trouvé (distance infinie dans la *Figure 2*).
+  - *predecesseurs* : le prédécesseur de chaque ville dans le chemin le plus court trouvé jusqu’à maintenant. Un predecesseur non encore défini est représentée par la valeur -1, la source elle-même n’ayant pas de prédécesseur aura aussi la valeur -1.
+  - *nœuds* : un tableau pour représenter l’ensemble **noeuds** défini dans le pseudocode de l’algorithme de Dijkstra présenté précédamment. Comme il sert à représenter un ensemble, au sens mathématique, l’ordre des éléments dans ce tableau n’a pas d’importance. Les valeurs dans cet ensemble sont les indices dans les tableaux *distances* et *predecesseurs*. 
+  
+La structure *Matrice* sert à représenter la matrice des poids, c’est-à-dire les distances entre villes voisines dans le graphe. Dans cette matrice, la case **[x][y]** est la longueur de la route directe de la ville *x* vers la ville *y*. La valeur -1 indique qu’il n’y a pas de route directe entre ces villes.
+
+Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, plutôt que des lettres comme dans l’exemple ci-dessus. À titre d’exemple, en considérant les nœuds de la *Figure 1* en ordre alphabétique, l’élément d’indice *0* est le nœud *A*. 
+  
 
 
 Directives particulières
