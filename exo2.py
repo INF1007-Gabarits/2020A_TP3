@@ -45,6 +45,43 @@ def afficherMatrice(nomMatrice, matrice):
 
 #region fonctions a completer
 
+# 1- Lit la matrice poids (distances entre les villes) a partir d'un fichier.
+def lirePoids(nomFichier):
+	# TODO: Lire le fichier et verifier que la lecture n'a pas fait d'erreur; affecter la valeur a ok selon s'il y a eu une erreur et retourner la matrice lue.  La matrice retounee n'a pas d'importance s'il y a eu une erreur.
+	# Format du fichier: dimension sur une ligne puis les differents elements separes par des "whitespaces".
+
+
+    # EST-CE QU'ON MET LA GROSSEUR DE LA MATRICE DANS LE FICHIER POIDS ET ON LE LIT DANS UNE VARIABLE ?
+
+
+    with open(nomFichier, 'r') as f:
+        listeDeLignes = f.readlines()
+
+    matriceLue = [[int(val) for val in lignes.split()] for lignes in listeDeLignes[0:]]
+
+    return matriceLue
+
+# 2- Initialise les structures pour appliquer l'algorithme de Dijkstra.
+def initialiser(noeudInitial, nNoeuds):
+	# TODO: Initialiser les tableaux distances, predecesseurs et noeuds, incluant leurs tailles.
+	# Tel qu'indique dans l'enonce:
+	# Les distances sont initialisees a -1 sauf pour le noeud initial qui est a 0.
+
+    distances = [AUCUN] * nNoeuds
+    distances[noeudInitial] = 0
+
+	# TODO: - Les predecesseurs sont initialises a -1.
+    predecesseurs = [AUCUN] * nNoeuds
+    predecesseurs[noeudInitial] = 0
+
+	# TODO: - Noeuds doit etre initialise pour contenir toutes les valeurs de 0 a nNoeuds-1.
+    noeuds = []
+    for i in range(nNoeuds - 1):
+       noeuds.append(i)
+
+    return distances, predecesseurs, noeuds
+
+
 def trouveElementPlusProche(distances, noeuds):
     return 1
 
@@ -52,6 +89,10 @@ def mettreAJourDistances(poids, distances, predecesseurs, noeuds, parNoeud):
     return
 
 def retirerUnElementDuTableau(ensemble, element):
+    return
+
+# 6- Affiche le plus court chemin, soit la liste des noeuds par lesquels il faut passer pour se rendre de la source a la destination.  Suppose que l'algorithme a deja ete applique pour calculer les tableaux de distances et predecesseurs.
+def afficherCheminPlusProche(distances, predecesseurs, noeudSource, noeudDestination):
     return
 
 #endregion
@@ -126,52 +167,43 @@ if __name__ == '__main__':
     tester_retirerUnElementDuTableau()
     print("Fin des tests")
 
-	# //TODO: Lire la matrice des poids � partir du fichier poids.txt.
-	# bool ok = true;
-	# Matrice matriceLue = lirePoids("poids.txt", ok); //Devrait mettre une constante pour poids.txt
+    # TODO: Lire la matrice des poids � partir du fichier poids.txt.
+    matriceLue = lirePoids("poids.txt") # Devrait mettre une constante pour poids.txt
 
-	#  //TODO: Afficher un message d'erreur si la lecture �choue, et ne pas continuer l'ex�cution.
-	# if (!ok)
-	# {
-	# 	cout << "La lecture a echoue";
-	# 	return 0;
-	# }
+    afficherMatrice("matriceLue", matriceLue)
 
-	# //TODO: Demander � l'utilsateur l'indice du noeud source, avec validation de l'entr�e.
-	# unsigned indiceNoeudSource;
-	# do {
-	# 	cout << "Quel est l'indice du noeud source? ";
-	# 	cin >> indiceNoeudSource;
-	# } while (indiceNoeudSource < 0 || indiceNoeudSource > matriceLue.taille - 1); // pas sur de cette condition
+    # TODO: Demander a l'utilsateur l'indice du noeud source, avec validation de l'entree.
+    while True:
+        indiceNoeudSource = int(input("Quel est l'indice du noeud source? "))
+        if indiceNoeudSource >= 0 and indiceNoeudSource < len(matriceLue):
+            break
+    
+    # TODO: Intialiser les tableaux de distances, predecesseurs et noeuds.
+    tableauDistances, tableauPredecesseurs, tableauNoeuds = initialiser(indiceNoeudSource, len(matriceLue))
 
-	# //TODO: Intialiser les tableaux de distances, predecesseurs et noeuds.
-	# Tableau tableauDistances,
-	# 	tableauPredecesseurs,
-	# 	tableauNoeuds;
-	# initialiser(tableauDistances, tableauPredecesseurs, tableauNoeuds, indiceNoeudSource, matriceLue.taille);
-
-	# //TODO: Tant qu'il reste des �l�ments dans l'ensemble noeuds:
-	# while (tableauNoeuds.taille != 0)
-	# {
-	# 	//TODO: Trouver l'element le plus proche du noeud initial saisi par l'utilisateur.
-	# 	int elementPlusProche = trouveElementPlusProche(tableauDistances, tableauNoeuds);
-	# 	//TODO: Mettre � jour les distances en v�rifiant si c'est plus court de passer par le noeud le plus proche.
-	# 	mettreAJourDistances(matriceLue, tableauDistances, tableauPredecesseurs, tableauNoeuds, elementPlusProche);
-	# 	//TODO: Retirer cet element le plus proche de l'ensemble noeuds.
-	# 	retirerUnElementDuTableau(tableauNoeuds, elementPlusProche);
-	# }
+    # //TODO: Tant qu'il reste des �l�ments dans l'ensemble noeuds:
+    # while (tableauNoeuds.taille != 0)
+    # {
+    # 	//TODO: Trouver l'element le plus proche du noeud initial saisi par l'utilisateur.
+    # 	int elementPlusProche = trouveElementPlusProche(tableauDistances, tableauNoeuds);
+    # 	//TODO: Mettre � jour les distances en v�rifiant si c'est plus court de passer par le noeud le plus proche.
+    # 	mettreAJourDistances(matriceLue, tableauDistances, tableauPredecesseurs, tableauNoeuds, elementPlusProche);
+    # 	//TODO: Retirer cet element le plus proche de l'ensemble noeuds.
+    # 	retirerUnElementDuTableau(tableauNoeuds, elementPlusProche);
+    # }
 
 
 
-	# //TODO: Afficher le contenu de distances.
-	# afficherTableau("Contenu de distances", tableauDistances);
-	# //TODO: Afficher le contenu de predecesseurs.
-	# afficherTableau("Contenu de predecesseurs", tableauPredecesseurs);
-	# //TODO: Demander � l'utilisateur un noeud destination diff�rent la source, avec validation de l'entr�e.
-	# unsigned indiceNoeudDestination;
-	# do {
-	# 	cout << "Quel est l'indice du noeud destination? ";
-	# 	cin >> indiceNoeudDestination;
-	# } while (indiceNoeudDestination < 0 || indiceNoeudDestination > matriceLue.taille - 1); // pas sur de cette condition
-	# 																						//TODO: Afficher la solution, soit le plus court chemin allant de la source vers la destination.
-	# afficherCheminPlusProche(tableauDistances, tableauPredecesseurs, indiceNoeudSource, indiceNoeudDestination);
+    # //TODO: Afficher le contenu de distances.
+    afficherTableau("Contenu de distances", tableauDistances)
+    # //TODO: Afficher le contenu de predecesseurs.
+    afficherTableau("Contenu de predecesseurs", tableauPredecesseurs)
+    
+    # //TODO: Demander a l'utilisateur un noeud destination different de la source, avec validation de l'entree.
+    while True:
+        indiceNoeudDestination = int(input("Quel est l'indice du noeud destination? "))
+        if indiceNoeudDestination >= 0 and indiceNoeudSource < len(matriceLue) and indiceNoeudSource != indiceNoeudDestination:
+            break
+
+    #TODO: Afficher la solution, soit le plus court chemin allant de la source vers la destination.
+    afficherCheminPlusProche(tableauDistances, tableauPredecesseurs, indiceNoeudSource, indiceNoeudDestination)
