@@ -1,7 +1,13 @@
 import inspect
 
+#region constantes
+
 TAILLE_MAX = 32
 AUCUN = -1; # Valeur utilisee lorsqu'il n'y a aucun chemin, aucun predecesseur, etc.  Pour utiliser une constante unique, il faut qu'elle ait une valeur invalide a la fois comme distance et comme numero de noeud.
+
+#endregion
+
+#region fonctions d'aide
 
 # Indique si un element est dans l'ensemble.
 def estDans(ensemble, element):
@@ -21,6 +27,23 @@ def comparerTableaux(tableauA, tableauB):
 
     print("Test a la ligne "+ str(inspect.currentframe().f_lineno) + " : " + BON_SI_VRAI[estPareil])
 
+def afficherTableau(nomTableau, tableau):
+    print("Affichage tableau: " + nomTableau)
+
+    for elem in tableau:
+        print("{0:4}".format(elem), end=" ")
+    print()
+
+def afficherMatrice(nomMatrice, matrice):
+    print("Affichage du contenu de la matrice: " + nomMatrice)
+    for line in matrice:
+        for elem in line:
+            print("{0:4}".format(elem), end=" ")
+        print()
+
+#endregion
+
+#region fonctions a completer
 
 def trouveElementPlusProche(distances, noeuds):
     return 1
@@ -31,7 +54,9 @@ def mettreAJourDistances(poids, distances, predecesseurs, noeuds, parNoeud):
 def retirerUnElementDuTableau(ensemble, element):
     return
 
-# region "Fonctions de test"
+#endregion
+
+#region "Fonctions de test"
 
 BON_SI_VRAI = ["ERREUR", "BON"]
 
