@@ -20,7 +20,7 @@ Trier les éléments d'un tableau en ordre croissant par l'algorithme de tri par
 
 ### Visualisation de l'algorithme
 Cette vidéo permet de bien visualiser le fonctionnement de l'algorithme de tri par sélection.
-[![vidéo](https://www.youtube.com/watch?v=qpeeRU_K90k&ab_channel=CAMNET)]
+[![vidéo](http://img.youtube.com/vi/qpeeRU_K90k&ab_channel=CAMNET/0.jpg)(https://www.youtube.com/watch?v=qpeeRU_K90k&ab_channel=CAMNET)
 
 ### Notes
 * Le fichier *listeDeNombres.txt* vous est fourni, et contient des lignes contenant des séquences de nombre à trier. Ces nombres sont séparés par des *espaces*, et les lignes par des *sauts de ligne*. La dernière ligne du fichier est une ligne vide.
