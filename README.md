@@ -1,5 +1,5 @@
 
-![Polylogo](https://lh3.googleusercontent.com/proxy/vrZOGWNKkffbTGgMZ-yypVpqS0VjGaZaaJOcgPThxeier5DFa2jFBOxwNnu3399B-QodQulHbkDcVuxVh1PCoYKgOTY)
+![Polylogo](https://promptinnov.com/wp-content/uploads/2019/02/polytechnique.jpg)
 
 # TP3
 
@@ -20,6 +20,7 @@ Trier les éléments d'un tableau en ordre croissant par l'algorithme de tri par
 
 ### Visualisation de l'algorithme
 Cette vidéo permet de bien visualiser le fonctionnement de l'algorithme de tri par sélection.
+
 [![vidéo](http://img.youtube.com/vi/qpeeRU_K90k/0.jpg)](https://www.youtube.com/watch?v=qpeeRU_K90k&ab_channel=CAMNET)
 
 ### Notes
