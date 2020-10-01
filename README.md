@@ -19,7 +19,7 @@ Trier les éléments d'un tableau en ordre croissant par l'algorithme de tri par
 4. On recommence au point 1 tant et aussi longtemps que la zone de tri contient plus d'un élément.
 
 ### Visualisation de l'algorithme
-Cette [vidéo](https://www.youtube.com/watch?v=qpeeRU_K90k&ab_channel=CAMNET) permet de bien visualiser le fonctionnement de l'algorithme de tri par sélection.
+Cette ![vidéo](https://www.youtube.com/watch?v=qpeeRU_K90k&ab_channel=CAMNET) permet de bien visualiser le fonctionnement de l'algorithme de tri par sélection.
 
 ### Notes
 * Le fichier *listeDeNombres.txt* vous est fourni, et contient des lignes contenant des séquences de nombre à trier. Ces nombres sont séparés par des *espaces*, et les lignes par des *sauts de ligne*. La dernière ligne du fichier est une ligne vide.
