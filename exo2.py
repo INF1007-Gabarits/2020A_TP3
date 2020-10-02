@@ -59,8 +59,8 @@ def lirePoids(nomFichier):
     #      une erreur ou non et retourner la matrice lue.  La matrice retournée n'a pas d'importance s'il y a eu une erreur.
     #      Format du fichier: dimension sur une ligne puis les differents elements séparés par des "whitespaces".
     #
-    # EST-CE QU'ON MET LA GROSSEUR DE LA MATRICE DANS LE FICHIER POIDS ET ON LE LIT DANS UNE VARIABLE ?
-
+    # TODO Partie 2: Ajouter une couche de vérification des données en entrée. Vérifier que toutes les lignes de la matrice
+    #                ont la même longeur et qu'il n'y a pas de valeurs incohérentes (autres que des entier positifs ou -1)
     with open(nomFichier, 'r') as f:
         listeDeLignes = f.readlines()
 
@@ -84,7 +84,7 @@ def initialiser(noeudInitial, nNoeuds):
 
     # TODO: - Noeuds doit etre initialise pour contenir toutes les valeurs de 0 a nNoeuds-1.
     noeuds = []
-    for i in range(nNoeuds - 1):
+    for i in range(nNoeuds):
         noeuds.append(i)
 
     return distances, predecesseurs, noeuds
@@ -98,7 +98,7 @@ def trouveElementPlusProche(distances, noeuds):
 
     for noeud in noeuds:
         if distances[noeud] is not AUCUN:
-            if (distance_min is not AUCUN and distances[noeuds[distance_min]] > distances[
+            if (distance_min is not AUCUN and distances[distance_min] > distances[
                 noeud]) or distance_min is AUCUN:
                 distance_min = noeud
     return distance_min
@@ -111,8 +111,8 @@ def mettreAJourDistances(poids, distances, predecesseurs, noeuds, parNoeud):
     #       cette nouvelle valeur et change le prédécesseur de cet élément comme étant parNoeud.  Attention aux valeurs -1
     #       dans les poids et les distances.  Voir la description dans l'énoncé pour plus de détails.
     for noeud in noeuds:
-        if poids[parNoeud][noeud] is not AUCUN:
-            if distances[noeud] is AUCUN or distances[noeud] > (poids[parNoeud][noeud] + distances[parNoeud]):
+        if AUCUN not in (poids[parNoeud][noeud], parNoeud):
+            if distances[noeud] is AUCUN or (distances[noeud] > (poids[parNoeud][noeud] + distances[parNoeud])):
                 distances[noeud] = poids[parNoeud][noeud] + distances[parNoeud]
                 predecesseurs[noeud] = parNoeud
     return
@@ -245,11 +245,16 @@ if __name__ == '__main__':
         # 	TODO: Trouver l'element le plus proche du noeud initial saisi par l'utilisateur.
         element_plus_proche = trouveElementPlusProche(liste_distances, liste_noeuds)
 
-        # 	TODO: Mettre à jour les distances en v�rifiant si c'est plus court de passer par le noeud le plus proche.
+        #   TODO: Si tous les chemins possibles ont été évalués (aucun prochain element a visiter), sortir de la boucle
+        if (element_plus_proche == AUCUN):
+            break
+
+        # 	TODO: Mettre à jour les distances en vérifiant si c'est plus court de passer par le noeud le plus proche.
         mettreAJourDistances(matriceLue, liste_distances, liste_predecesseurs, liste_noeuds, element_plus_proche)
 
         # 	TODO: Retirer cet element le plus proche de l'ensemble noeuds.
-        liste_noeuds.remove(element_plus_proche)
+        if element_plus_proche in liste_noeuds:
+            liste_noeuds.remove(element_plus_proche)
 
     # TODO: Afficher le contenu de distances.
     afficherTableau("Contenu de distances", liste_distances)
@@ -257,12 +262,16 @@ if __name__ == '__main__':
     # TODO: Afficher le contenu de predecesseurs.
     afficherTableau("Contenu de predecesseurs", liste_predecesseurs)
 
-    # TODO: Demander a l'utilisateur un noeud destination different de la source, avec validation de l'entree.
+    # TODO: Demander a l'utilisateur un noeud destination different de la source, avec validation de l'entree (indiquer
+    #       l'intervalle de sommet possible et si la valeur entrée est hors de celui-ci).
     while True:
         indiceNoeudDestination = int(input("Quel est l'indice du noeud destination? "))
         if indiceNoeudDestination >= 0 and indiceNoeudSource < len(
                 matriceLue) and indiceNoeudSource != indiceNoeudDestination:
             break
+
+    # TODO Partie 2: Valider si un chemin entre les deux sommet existe
+
 
     # TODO: Afficher la solution, soit le plus court chemin allant de la source vers la destination.
     afficherCheminPlusProche(liste_distances, liste_predecesseurs, indiceNoeudSource, indiceNoeudDestination)
