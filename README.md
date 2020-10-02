@@ -98,3 +98,4 @@ pas d’affichage.
 * Respecter le guide de codage, les points pertinents pour ce travail sont donnés en annexe à la fin.
 
 
+## Partie 2.1: Ajoutons un peu de vérifications
