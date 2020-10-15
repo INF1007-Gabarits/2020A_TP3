@@ -5,21 +5,21 @@ def lireFichier():
 
     # Ouvrir le fichier en mode de lecture à l'aide d'un context manager
     with open(chemin + nom, 'r') as f:
-        #Lire les lignes du fichier dans une liste de lignes
-        listeDeLignes = f.readlines()
+        #Lire les lignes du fichier dans un tableau de lignes
+        tableauDeLignes = f.readlines()
 
-    # Faire une liste de liste contenant les séquences de nombres (transformées de string à int)
-    contenu = [[int(val) for val in lignes.split()] for lignes in listeDeLignes[0:]]
+    # Faire une tableau de tableau (contenu) contenant les séquences de nombres (transformées de string à int)
+    contenu = [[int(val) for val in lignes.split()] for lignes in tableauDeLignes[0:]]
 
     return contenu
 
 # TODO
-def sauvegarderListesTriees(chemin, nom, listeTriees):
+def sauvegarderSequencesTriees(chemin, nom, sequencesTriees):
     # Ouvrir le fichier en mode écriture à l'aide d'un context manager
     with open(chemin + nom, "w") as f:
 
-        # Pour tous les sequences de nombres
-        for sequence in listeTriees:
+        # Pour toutes les séquences triées de nombres
+        for sequence in sequencesTriees:
             
             # Pour tous les nombres dans la séquence
             for nombre in sequence:
@@ -44,12 +44,12 @@ def fusionner(gauche, droite):
     resultat = []
     indexGauche = indexDroite = 0
 
-    # Parcourir les deux tableaux jusqu'à ce que tous les éléments (droite et gauche)
+    # Parcourir les deux tableaux (droite et gauche) jusqu'à ce que tous les éléments
     # soient ajoutés au tableau resultat
     while len(resultat) < len(gauche) + len(droite):
         # Les éléments doivent être triés pour être ajouté au tableau résultat.
         # Il faut donc décider de soit prendre le prochain élément du tableau
-        # droite ou du tableau gauche
+        # droite ou soit du tableau gauche
         if gauche[indexGauche] <= droite[indexDroite]:
             resultat.append(gauche[indexGauche])
             indexGauche += 1
@@ -57,7 +57,7 @@ def fusionner(gauche, droite):
             resultat.append(droite[indexDroite])
             indexDroite += 1
 
-        # Si la fin de n'importe lequel des deux tableau est atteinte,
+        # Si la fin de n'importe lequel des deux tableaux est atteinte,
         # ajouter directement tous les éléments restants de l'autre tableau
         # au tableau résultat, et terminer la boucle.
         if indexDroite == len(droite):
@@ -71,33 +71,55 @@ def fusionner(gauche, droite):
     return resultat
 
 # TODO
-def triFusion(tableau):
-    # Si le tableau contient moins de 2 elements, retouner comme étant le résultat de la fonction
-    if len(tableau) < 2:
-        return tableau
+def triFusion(sequenceDeNombre):
+    # Si le tableau (sequenceDeNombre) contient moins de 2 éléments, retourner directement le tableau
+    # comme étant le résultat de la fonction
+    if len(sequenceDeNombre) < 2:
+        return sequenceDeNombre
 
     # Trouver l'indice de l'élément milieu du tableau
-    milieuTableau = len(tableau) // 2
+    milieuSequence = len(sequenceDeNombre) // 2
 
     # Trier le tableau en séparant récursivement le tableau en 2 parties égales
     # qui seront triées et finalement fusionnées ensemble dans le résultat final
-    # Indice: Passer à chaque paramètres de la fonction fusionner la fonction triFusion
+    # INDICE: Passer à chaque paramètres de la fonction fusionner la fonction triFusion
+    # avec une partie (gauche ou droite) de la séquence de nombre
     return fusionner(
-        gauche=triFusion(tableau[:milieuTableau]),
-        droite=triFusion(tableau[milieuTableau:]))
+        gauche=triFusion(sequenceDeNombre[:milieuSequence]),
+        droite=triFusion(sequenceDeNombre[milieuSequence:]))
 
+# NE PAS TOUCHER, C'EST UNE FONCTION DE TEST POUR VOUS AIDER À VALIDER VOS RÉSULTATS
+def testerResultat(sequencesATrier, sequencesTriees):
+    bonResultats = 0
+
+    for indice in range(len(sequencesTriees)):
+        test = sequencesATrier[indice][:] 
+        test.sort() # C'est facile le Python ! 
+        if (test == sequencesTriees[indice]): 
+            bonResultats += 1
+
+    return bonResultats == len(sequencesATrier)
+
+# NE PAS TOUCHER AU MAIN
 if __name__ == '__main__':
-    listesATrier = lireFichier()
+    sequencesATrier = lireFichier()
 
-    print("Les listes à trier sont: ")
-    print(listesATrier)
+    print("Les séquences à trier sont: ")
+    print(sequencesATrier)
 
-    listesTriees = []
+    sequencesTriees = []
 
-    for sequence in listesATrier:
-        listesTriees.append(triFusion(sequence))
+    for sequence in sequencesATrier:
+        sequencesTriees.append(triFusion(sequence))
 
-    print("Les listes triées sont: ")
-    print(listesTriees)
+    print("Les séquences triées sont: ")
+    print(sequencesTriees)
 
-    sauvegarderListesTriees("./", "resultats.txt", listesTriees)
+    estBon = testerResultat(sequencesATrier, sequencesTriees)
+
+    if estBon:
+        print("Bravo, le tri est bon !")  
+    else:
+        print("Oups, le tri ne fonctionne pas")
+    
+    sauvegarderSequencesTriees("./", "resultats.txt", sequencesTriees)
