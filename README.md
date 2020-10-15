@@ -7,26 +7,34 @@
 #### :alarm_clock: [Date de remise](https://www.timeanddate.com/countdown/generic?iso=20210131T2359&p0=165&msg=Remise&font=cursive&csz=1#)
 
 ## Partie 1: Introduction aux fonctions
-Cette partie est relativement simple, et a pour but de vous échauffer pour la partie 2 du TP ! Celle-ci consiste en une introduction aux lectures/écritures de fichier, en implémentant un algorithme de tri simple. 
+Cette partie est une évolution du premier exercice du dernier TP (tri par sélection), et a pour but de vous préparer pour la partie 2 du TP !
 
-### Le but: 
-Trier les éléments d'un tableau en ordre croissant par l'algorithme de tri par sélection.
+### Le but:
+1. Lire des séquences de nombres dans un fichier.
+2. Trier ces séquences de nombres en ordre croissant, par l'algorithme de tri par fusion.
+3. Écrire les séquences de nombre, une fois triées, dans un fichier texte
 
 ### Description: 
-1. On recherche le plus petit élément de la zone de tri. Au départ, cette zone couvre l'ensemble du tableau. Lorsque durant notre recherche, on identifie un élément qui pourrait être le plus petit élément du tableau, on retient sa position (l'indice de la case du tableau)
-2. Si, à la suite de cette recherche, on s'aperçoit que le plus petit élément du tableau n'est pas au sommet de la zone de tri, on échange la valeur située au sommet du tableau et celle du plus petit élément du tableau.
-3. On réduit la zone de tri en excluant le sommet de la zone de tri précédente.
-4. On recommence au point 1 tant et aussi longtemps que la zone de tri contient plus d'un élément.
+Les problèmes de tri font partie des problèmes les plus célèbres en informatique. Il existe un nombre pratiquement infini d'algorithme permettant de trier des éléments en ordre croissant(ou autre), toutefois tous ne sont pas égaux. En effet, bien que chaque algorithme (fonctionnel) arrive à un résultat correct, certain sont beaucoup plus performant que d'autre. La performance n'est pas critique lorsque l'on trie des centaines, voire des milliers d'éléments... Mais quand on tombe dans les millions et plus, ça devient important ! 
+
+C'est là que l'algorithme de tri par fusion (merge sort) se démarque du tri par sélection. Bien que ce dernier fonctionne... Il est très lent à comparer du tri par fusion.
+Cet algorithme n'est toutefois pas le plus rapide existant, mais il est une bonne introduction au monde de l'algorithmie. De plus, celui-ci utilise le principe de récursivité, qui est une notion important à comprendre, ainsi que le principe de *diviser pour régner* qui est un *pattern* important en algorithmie.
 
 ### Visualisation de l'algorithme
-Cette vidéo permet de bien visualiser le fonctionnement de l'algorithme de tri par sélection.
+Cette [vidéo](https://www.youtube.com/watch?v=4VqmGXwpLqc&ab_channel=MichaelSambol) permet de bien visualiser le fonctionnement de l'algorithme de tri par fusion.
 
-[![vidéo](http://img.youtube.com/vi/qpeeRU_K90k/0.jpg)](https://www.youtube.com/watch?v=qpeeRU_K90k&ab_channel=CAMNET)
+### Fonctionnement
+En utilisant le principe de diviser pour régner, cet algorithme parvient à rapidement trier une séquence de nombre en ordre croissant. Les étapes, sous formes de commentaires, sont déjà placées pour vous dans le code.
+
+Voici une *tentative* d'explication de l'algorithme. Si ce n'est pas clair, une simple recherche sur Google avec les termes: *Tri fusion étape par étape* ou bien *How to merge sort* devrait répondre à toutes vos questions.
+1. Diviser la séquence de nombres en appelant récursivement la fonction de tri fusion. Cette fonction sépare le tableau reçu en 2, et fusionne les 2 parties une fois *triées*. Cette fonction atteint sa condition d'arrêt seulement quand le tableau reçu est de taille 1.
+2. Le tri se passe dans la fonction fusionner. En effet, celle-ci reçoit 2 tableaux (de taille 1 ou plus) et place dans un tableau résultat les éléments des 2 tableaux reçus, en ordre croissant.
+3. Le tri se termine lorsque l'on revient au premier appel récursif, soit lorsque le tableau résultat a la même longueur que le tableau initial.
 
 ### Notes
 * Le fichier *listeDeNombres.txt* vous est fourni, et contient des lignes contenant des séquences de nombre à trier. Ces nombres sont séparés par des *espaces*, et les lignes par des *sauts de ligne*. La dernière ligne du fichier est une ligne vide.
 * Les résultats doivent être enregistrés dans le fichier *resultats.txt*, sous la même forme qu'ils sont présentés dans le fichier *listeDeNombres.txt* (mais triés !), soit une séquence de nombre (par ligne) séparés par des espaces, avec un saut de ligne à la fin.
-* Le *main* n'a pas besoin d'être modifié, seulement les fonctions *lireFichier()*, *sauvegarderListesTriees(chemin, nom, listeTriees)* et *trierListe(listeATrier)*
+* Le *main* et la fonction de test *testerResultat(sequencesATrier, sequencesTriees)* n'ont pas besoin d'être modifié, seulement les fonctions *lireFichier()*, *sauvegarderSequencesTriees(chemin, nom, listeTriees)*, *fusionner(gauche, droite)*, et *triFusion(sequenceDeNombre)* doivent être modifiées.
 * Des instructions textuelles vous sont données pour vous indiquer quels sont les changements à effectuer.
 
 ### Pour aller plus loin
