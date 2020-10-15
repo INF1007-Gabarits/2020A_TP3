@@ -15,10 +15,12 @@ Cette partie est une évolution du premier exercice du dernier TP (tri par séle
 3. Écrire les séquences de nombre, une fois triées, dans un fichier texte
 
 ### Description: 
-Les problèmes de tri font partie des problèmes les plus célèbres en informatique. Il existe un nombre pratiquement infini d'algorithme permettant de trier des éléments en ordre croissant(ou autre), toutefois tous ne sont pas égaux. En effet, bien que chaque algorithme (fonctionnel) arrive à un résultat correct, certain sont beaucoup plus performant que d'autre. La performance n'est pas critique lorsque l'on trie des centaines, voire des milliers d'éléments... Mais quand on tombe dans les millions et plus, ça devient important ! 
+Les problèmes de tri font partie des problèmes les plus célèbres en informatique. Il existe un nombre pratiquement infini d'algorithme permettant de trier des éléments en ordre croissant(ou autre), toutefois tous ne sont pas égaux. En effet, bien que chaque algorithme (fonctionnel) arrive à un résultat correct, certain sont beaucoup plus performant que d'autre. La performance n'est pas critique lorsque l'on trie des centaines, voire des milliers d'éléments... Mais quand on tombe dans les millions et plus, ça devient important !
 
 C'est là que l'algorithme de tri par fusion (merge sort) se démarque du tri par sélection. Bien que ce dernier fonctionne... Il est très lent à comparer du tri par fusion.
-Cet algorithme n'est toutefois pas le plus rapide existant, mais il est une bonne introduction au monde de l'algorithmie. De plus, celui-ci utilise le principe de récursivité, qui est une notion important à comprendre, ainsi que le principe de *diviser pour régner* qui est un *pattern* important en algorithmie.
+Cet algorithme n'est toutefois pas le plus rapide existant, mais il est une bonne introduction au monde de l'algorithmie. De plus, celui-ci utilise le principe de récursivité, qui est une notion importante à comprendre, ainsi que le principe de *diviser pour régner* qui est un *pattern* important en algorithmie.
+
+La fonction *.sort()* de Python, par exemple, utilise une variation de l'algorithme *merge sort*, soit le [Timsort](https://en.wikipedia.org/wiki/Timsort).
 
 ### Visualisation de l'algorithme
 Cette [vidéo](https://www.youtube.com/watch?v=4VqmGXwpLqc&ab_channel=MichaelSambol) permet de bien visualiser le fonctionnement de l'algorithme de tri par fusion.
@@ -27,7 +29,7 @@ Cette [vidéo](https://www.youtube.com/watch?v=4VqmGXwpLqc&ab_channel=MichaelSam
 En utilisant le principe de diviser pour régner, cet algorithme parvient à rapidement trier une séquence de nombre en ordre croissant. Les étapes, sous formes de commentaires, sont déjà placées pour vous dans le code.
 
 Voici une *tentative* d'explication de l'algorithme. Si ce n'est pas clair, une simple recherche sur Google avec les termes: *Tri fusion étape par étape* ou bien *How to merge sort* devrait répondre à toutes vos questions.
-1. Diviser la séquence de nombres en appelant récursivement la fonction de tri fusion. Cette fonction sépare le tableau reçu en 2, et fusionne les 2 parties une fois *triées*. Cette fonction atteint sa condition d'arrêt seulement quand le tableau reçu est de taille 1.
+1. Diviser la séquence de nombres en appelant récursivement la fonction de tri fusion. Cette fonction sépare le tableau reçu en 2, et fusionne les 2 parties une fois *triées*. Cette fonction atteint sa condition d'arrêt seulement quand le tableau reçu est de taille 1
 2. Le tri se passe dans la fonction fusionner. En effet, celle-ci reçoit 2 tableaux (de taille 1 ou plus) et place dans un tableau résultat les éléments des 2 tableaux reçus, en ordre croissant.
 3. Le tri se termine lorsque l'on revient au premier appel récursif, soit lorsque le tableau résultat a la même longueur que le tableau initial.
 
