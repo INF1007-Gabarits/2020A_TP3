@@ -30,33 +30,74 @@ def sauvegarderListesTriees(chemin, nom, listeTriees):
             f.write("\n")
 
 # TODO
-def trierListe(listeATrier):
-    # Tant que sommet < taille - 1
-    for sommet in range(len(listeATrier) - 1):
-        # Initialiser la position du plus petit
-        indicePlusPetit = sommet
+def fusionner(gauche, droite):
+    # Si le premier tableau (gauche) est vide, alors rien n'a besoin d'être fusionné. 
+    # Retourner le deuxième tableau (droite) comme étant le résultat
+    if len(gauche) == 0:
+        return droite
 
-        # Trouver le plus petit élément de la zone de tri effective
-        for indice in range(sommet + 1, len(listeATrier), 1):
-            if listeATrier[indice] < listeATrier[indicePlusPetit]:
-                indicePlusPetit = indice
-        
-        # Si nécessaire, déplacer le plus petit élément au sommet
-        if indicePlusPetit != sommet:
-            listeATrier[indicePlusPetit], listeATrier[sommet] = listeATrier[sommet], listeATrier[indicePlusPetit] 
+    # Si le deuxième tableau (droite) est vide, alors rien n'a besoin d'être fusionné. 
+    # Retourner le premier tableau (gauche) comme étant le résultat
+    if len(droite) == 0:
+        return gauche
 
-    return listeATrier
+    resultat = []
+    indexGauche = indexDroite = 0
+
+    # Parcourir les deux tableaux jusqu'à ce que tous les éléments (droite et gauche)
+    # soient ajoutés au tableau resultat
+    while len(resultat) < len(gauche) + len(droite):
+        # Les éléments doivent être triés pour être ajouté au tableau résultat.
+        # Il faut donc décider de soit prendre le prochain élément du tableau
+        # droite ou du tableau gauche
+        if gauche[indexGauche] <= droite[indexDroite]:
+            resultat.append(gauche[indexGauche])
+            indexGauche += 1
+        else:
+            resultat.append(droite[indexDroite])
+            indexDroite += 1
+
+        # Si la fin de n'importe lequel des deux tableau est atteinte,
+        # ajouter directement tous les éléments restants de l'autre tableau
+        # au tableau résultat, et terminer la boucle.
+        if indexDroite == len(droite):
+            resultat += gauche[indexGauche:]
+            break
+
+        if indexGauche == len(gauche):
+            resultat += droite[indexDroite:]
+            break
+
+    return resultat
+
+# TODO
+def triFusion(tableau):
+    # Si le tableau contient moins de 2 elements, retouner comme étant le résultat de la fonction
+    if len(tableau) < 2:
+        return tableau
+
+    # Trouver l'indice de l'élément milieu du tableau
+    milieuTableau = len(tableau) // 2
+
+    # Trier le tableau en séparant récursivement le tableau en 2 parties égales
+    # qui seront triées et finalement fusionnées ensemble dans le résultat final
+    # Indice: Passer à chaque paramètres de la fonction fusionner la fonction triFusion
+    return fusionner(
+        gauche=triFusion(tableau[:milieuTableau]),
+        droite=triFusion(tableau[milieuTableau:]))
 
 if __name__ == '__main__':
     listesATrier = lireFichier()
 
+    print("Les listes à trier sont: ")
     print(listesATrier)
 
     listesTriees = []
 
     for sequence in listesATrier:
-        listesTriees.append(trierListe(sequence))
+        listesTriees.append(triFusion(sequence))
 
+    print("Les listes triées sont: ")
     print(listesTriees)
 
     sauvegarderListesTriees("./", "resultats.txt", listesTriees)
