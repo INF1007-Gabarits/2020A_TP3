@@ -4,3 +4,6 @@ README.md
 test_assignment.py
 settings/files_to_update.txt
 settings/variables.txt
+images/ex_reseau_routier.png
+images/exemple_algo_dijsktra.png
+images/Merge-Sort-Algorithm.png

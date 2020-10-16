@@ -15,6 +15,7 @@ def lireFichier():
 
 # TODO Fonction écrivant les séquences triées dans un fichier spécifié
 def sauvegarderSequencesTriees(chemin, nom, sequencesTriees):
+    ...
     # Ouvrir le fichier en mode écriture à l'aide d'un context manager
 
 
@@ -72,6 +73,7 @@ def fusionner(gauche, droite):
 
 # TODO Fonction d'entrée du tri fusion
 def triFusion(sequenceDeNombre):
+    ...
     # Si le tableau (sequenceDeNombre) contient moins de 2 éléments, retourner directement le tableau
     # comme étant le résultat de la fonction
 

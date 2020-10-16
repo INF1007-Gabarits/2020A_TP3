@@ -59,12 +59,21 @@ def lirePoids(nomFichier):
     #      une erreur ou non et retourner la matrice lue.  La matrice retournée n'a pas d'importance s'il y a eu une erreur.
     #      Format du fichier: dimension sur une ligne puis les differents elements séparés par des "whitespaces".
     #
-    # TODO Partie 2: Ajouter une couche de vérification des données en entrée. Vérifier que toutes les lignes de la matrice
-    #                ont la même longeur et qu'il n'y a pas de valeurs incohérentes (autres que des entier positifs ou -1)
+    # TODO : Ajouter une couche de vérification des données en entrée. Vérifier que toutes les lignes de la matrice
+    #                ont la même longeur et qu'il n'y a pas de valeurs incohérentes (autres que des entier positifs ou -1). Si la matrice est
+    #                non conforme, utilisez la fonction exit() pour terminer le programme après avoir notifié l'utilisateur. 
     with open(nomFichier, 'r') as f:
         listeDeLignes = f.readlines()
 
-    matriceLue = [[int(val) for val in lignes.split()] for lignes in listeDeLignes[0:]]
+    matriceLue = [[int(val) for val in ligne.split()] for ligne in listeDeLignes[0:]]
+
+    if not all(len(ligne) == len(matriceLue[0]) for ligne in matriceLue[1:]):
+        print("La matrice n'est pas conforme (les lignes n'ont pas toutes la meme longueur. Fin du programme.")
+        exit()
+
+    if not all([x >=-1 for ligne in matriceLue for x in ligne]):
+        print("La matrice n'est pas conforme (valeurs doivent être -1 ou entier positif). Fin du programme")
+        exit()
 
     return matriceLue
 
@@ -226,7 +235,7 @@ if __name__ == '__main__':
     tester_retirerUnElementDuTableau()
     print("Fin des tests")
 
-    # TODO: Lire la matrice des poids � partir du fichier poids.txt.
+    # TODO: Lire la matrice des poids à partir du fichier poids.txt.
     matriceLue = lirePoids("poids.txt")  # Devrait mettre une constante pour poids.txt
 
     afficherMatrice("matriceLue", matriceLue)
@@ -270,8 +279,12 @@ if __name__ == '__main__':
                 matriceLue) and indiceNoeudSource != indiceNoeudDestination:
             break
 
-    # TODO Partie 2: Valider si un chemin entre les deux sommet existe
-
-
+    # TODO: Valider si un chemin entre les deux sommet existe
     # TODO: Afficher la solution, soit le plus court chemin allant de la source vers la destination.
-    afficherCheminPlusProche(liste_distances, liste_predecesseurs, indiceNoeudSource, indiceNoeudDestination)
+    if liste_distances[indiceNoeudDestination] == -1:
+        print("Il n'y a pas de chemin reliant ces deux noeuds")
+    else:
+        afficherCheminPlusProche(liste_distances, liste_predecesseurs, indiceNoeudSource, indiceNoeudDestination)
+
+
+    
