@@ -20,6 +20,8 @@ Les problèmes de tri font partie des problèmes les plus célèbres en informat
 C'est là que l'algorithme de tri par fusion (merge sort) se démarque du tri par sélection. Bien que ce dernier fonctionne... Il est très lent à comparer du tri par fusion.
 Cet algorithme n'est toutefois pas le plus rapide existant, mais il est une bonne introduction au monde de l'algorithmie. De plus, celui-ci utilise le principe de récursivité, qui est une notion importante à comprendre, ainsi que le principe de *diviser pour régner* qui est un *pattern* important en algorithmie.
 
+![merge-sort](./images/Merge-Sort-Algorithm.png)
+
 La fonction *.sort()* de Python, par exemple, utilise une variation de l'algorithme *merge sort*, soit le [Timsort](https://en.wikipedia.org/wiki/Timsort).
 
 ### Visualisation de l'algorithme
