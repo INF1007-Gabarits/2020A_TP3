@@ -5,21 +5,21 @@ def lireFichier():
 
     # Ouvrir le fichier en mode de lecture à l'aide d'un context manager
     with open(chemin + nom, 'r') as f:
-        #Lire les lignes du fichier dans une liste de lignes
-        listeDeLignes = f.readlines()
+        #Lire les lignes du fichier dans un tableau de lignes
+        tableauDeLignes = f.readlines()
 
-    # Faire une liste de liste contenant les séquences de nombres (transformées de string à int)
-    contenu = [[int(val) for val in lignes.split()] for lignes in listeDeLignes[0:]]
+    # Faire une tableau de tableau (contenu) contenant les séquences de nombres (transformées de string à int)
+    contenu = [[int(val) for val in lignes.split()] for lignes in tableauDeLignes[0:]]
 
     return contenu
 
 # TODO
-def sauvegarderListesTriees(chemin, nom, listeTriees):
+def sauvegarderSequencesTriees(chemin, nom, sequencesTriees):
     # Ouvrir le fichier en mode écriture à l'aide d'un context manager
     with open(chemin + nom, "w") as f:
 
-        # Pour tous les sequences de nombres
-        for sequence in listeTriees:
+        # Pour toutes les séquences triées de nombres
+        for sequence in sequencesTriees:
             
             # Pour tous les nombres dans la séquence
             for nombre in sequence:
@@ -30,33 +30,96 @@ def sauvegarderListesTriees(chemin, nom, listeTriees):
             f.write("\n")
 
 # TODO
-def trierListe(listeATrier):
-    # Tant que sommet < taille - 1
-    for sommet in range(len(listeATrier) - 1):
-        # Initialiser la position du plus petit
-        indicePlusPetit = sommet
+def fusionner(gauche, droite):
+    # Si le premier tableau (gauche) est vide, alors rien n'a besoin d'être fusionné. 
+    # Retourner le deuxième tableau (droite) comme étant le résultat
+    if len(gauche) == 0:
+        return droite
 
-        # Trouver le plus petit élément de la zone de tri effective
-        for indice in range(sommet + 1, len(listeATrier), 1):
-            if listeATrier[indice] < listeATrier[indicePlusPetit]:
-                indicePlusPetit = indice
-        
-        # Si nécessaire, déplacer le plus petit élément au sommet
-        if indicePlusPetit != sommet:
-            listeATrier[indicePlusPetit], listeATrier[sommet] = listeATrier[sommet], listeATrier[indicePlusPetit] 
+    # Si le deuxième tableau (droite) est vide, alors rien n'a besoin d'être fusionné. 
+    # Retourner le premier tableau (gauche) comme étant le résultat
+    if len(droite) == 0:
+        return gauche
 
-    return listeATrier
+    resultat = []
+    indexGauche = indexDroite = 0
 
+    # Parcourir les deux tableaux (droite et gauche) jusqu'à ce que tous les éléments
+    # soient ajoutés au tableau resultat
+    while len(resultat) < len(gauche) + len(droite):
+        # Les éléments doivent être triés pour être ajouté au tableau résultat.
+        # Il faut donc décider de soit prendre le prochain élément du tableau
+        # droite ou soit du tableau gauche
+        if gauche[indexGauche] <= droite[indexDroite]:
+            resultat.append(gauche[indexGauche])
+            indexGauche += 1
+        else:
+            resultat.append(droite[indexDroite])
+            indexDroite += 1
+
+        # Si la fin de n'importe lequel des deux tableaux est atteinte,
+        # ajouter directement tous les éléments restants de l'autre tableau
+        # au tableau résultat, et terminer la boucle.
+        if indexDroite == len(droite):
+            resultat += gauche[indexGauche:]
+            break
+
+        if indexGauche == len(gauche):
+            resultat += droite[indexDroite:]
+            break
+
+    return resultat
+
+# TODO
+def triFusion(sequenceDeNombre):
+    # Si le tableau (sequenceDeNombre) contient moins de 2 éléments, retourner directement le tableau
+    # comme étant le résultat de la fonction
+    if len(sequenceDeNombre) < 2:
+        return sequenceDeNombre
+
+    # Trouver l'indice de l'élément milieu du tableau
+    milieuSequence = len(sequenceDeNombre) // 2
+
+    # Trier le tableau en séparant récursivement le tableau en 2 parties égales
+    # qui seront triées et finalement fusionnées ensemble dans le résultat final
+    # INDICE: Passer à chaque paramètres de la fonction fusionner la fonction triFusion
+    # avec une partie (gauche ou droite) de la séquence de nombre
+    return fusionner(
+        gauche=triFusion(sequenceDeNombre[:milieuSequence]),
+        droite=triFusion(sequenceDeNombre[milieuSequence:]))
+
+# NE PAS TOUCHER, C'EST UNE FONCTION DE TEST POUR VOUS AIDER À VALIDER VOS RÉSULTATS
+def testerResultat(sequencesATrier, sequencesTriees):
+    bonResultats = 0
+
+    for indice in range(len(sequencesTriees)):
+        test = sequencesATrier[indice][:] 
+        test.sort() # C'est facile le Python ! 
+        if (test == sequencesTriees[indice]): 
+            bonResultats += 1
+
+    return bonResultats == len(sequencesATrier)
+
+# NE PAS TOUCHER AU MAIN
 if __name__ == '__main__':
-    listesATrier = lireFichier()
+    sequencesATrier = lireFichier()
 
-    print(listesATrier)
+    print("Les séquences à trier sont: ")
+    print(sequencesATrier)
 
-    listesTriees = []
+    sequencesTriees = []
 
-    for sequence in listesATrier:
-        listesTriees.append(trierListe(sequence))
+    for sequence in sequencesATrier:
+        sequencesTriees.append(triFusion(sequence))
 
-    print(listesTriees)
+    print("Les séquences triées sont: ")
+    print(sequencesTriees)
 
-    sauvegarderListesTriees("./", "resultats.txt", listesTriees)
+    estBon = testerResultat(sequencesATrier, sequencesTriees)
+
+    if estBon:
+        print("Bravo, le tri est bon !")  
+    else:
+        print("Oups, le tri ne fonctionne pas")
+    
+    sauvegarderSequencesTriees("./", "resultats.txt", sequencesTriees)
