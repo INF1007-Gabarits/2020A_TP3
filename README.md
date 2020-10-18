@@ -112,7 +112,8 @@ Il est primordial de baliser les entrées (inputs utilisateur comme le input() d
 Référez-vous aux *TODO:* dans le code pour ajouter ces éléments.
 
 ## Annexe: Guide et normes de codage
-[Le guide maison](https://github.com/INF1007-Gabarits/Guide-codage-python)
+[Le guide maison](https://github.com/INF1007-Gabarits/Guide-codage-python) de normes supplémentaires à respecter
+
 [Le plugin Pycharm Pylint](https://plugins.jetbrains.com/plugin/11084-pylint) qui analyse votre code et indique certaines erreurs. Vous avertis aussi si vous ne respectez pas certaines de normes de PEP8.
 
 [Quelques indications en français sur PEP8](https://openclassrooms.com/fr/courses/4425111-perfectionnez-vous-en-python/4464230-assimilez-les-bonnes-pratiques-de-la-pep-8)
