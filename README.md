@@ -6,7 +6,7 @@
 - [Directives particulières](#directives-particuli%C3%A8res)
 - [Partie 1: Introduction aux fonctions](#partie-1-introduction-aux-fonctions)
 - [Partie 2: Dijskstra](#partie-2-dijskstra---amusons-nous-avec-un-classsique)
-- [Annexe: Guide et normes de codage]
+- [Annexe: Guide et normes de codage](#annexe-guide-et-normes-de-codage)
 
 
 <!--- TODO: Changer la date de remise en modifiant le URL--->
