@@ -3,8 +3,26 @@
 
 # TP3
 
+- [Directives particulières](#directives-particuli%C3%A8res)
+- [Partie 1: Introduction aux fonctions](#partie-1-introduction-aux-fonctions)
+- [Partie 2: Dijskstra](#partie-2-dijskstra---amusons-nous-avec-un-classsique)
+- [Annexe: Guide et normes de codage](#annexe-guide-et-normes-de-codage)
+
+
 <!--- TODO: Changer la date de remise en modifiant le URL--->
-#### :alarm_clock: [Date de remise](https://www.timeanddate.com/countdown/generic?iso=20210131T2359&p0=165&msg=Remise&font=cursive&csz=1#)
+#### :alarm_clock: [Date de remise le Dimanche 1er novembre 23h59](https://www.timeanddate.com/countdown/generic?iso=20201101T2359&p0=165&msg=Remise&font=cursive&csz=1#)
+
+
+
+## Directives particulières
+* Dans chaque programme vous pouvez ajouter d’autres fonctions à celles décrites dans l’énoncé, ainsi que
+d’autres structures (et sous-structures), pour améliorer la lisibilité et suivre le principe **DRY** (Don’t Repeat
+Yourself). À chaque endroit où vous remarquez une duplication de code (vous avez écrit les mêmes
+opérations plus d’une fois) et qu’il n’est pas possible de l’éliminer avec ce qui a été vu en cours, indiquez-le
+en commentaire.
+* Afin de vous inciter à écrire du code de qualité nous introduisons dans ce TP des **normes de codage**. Plusieurs combinaisons de normes sont possibles et utilisées dans l'univers de la programmation. L'objectif n'est pas de définir quel ensemble de norme est supérieur/inférieur aux autres. L'intérêt est de choisir un ensemble de règle pour un projet/travail et d'être constant dans son application. L'ensemble de normes le plus utilisé en Python est le [PEP8 (Python enhancement proposal)](https://www.python.org/dev/peps/pep-0008/) décrit par l'auteur de python lui-même. L'avantage d'utiliser un IDE comme pycharm est qu'il est possible de le configurer pour vous indiquer lorsque vous ne respectez pas les conventions de PEP8. Votre configuration par défaut devrait fonctionner, néanmoins vous pouvez vous référer à [cette page](https://www.jetbrains.com/help/pycharm/tutorial-code-quality-assistance-tips-and-tricks.html) si ce n'est pas le cas des problèmes.
+* En extension aux normes de PEP8 nous avons rédigé quelques indications supplémentaires que vous devrez respecter au mieux.Les points pertinents pour ce travail sont donnés en annexe à la fin.
+
 
 ## Partie 1: Introduction aux fonctions
 Cette partie est une évolution du premier exercice du dernier TP (tri par sélection), et a pour but de vous préparer pour la partie 2 du TP !
@@ -50,6 +68,7 @@ Toutefois, il existe une variété assez impressionante d'algorithmes de tri. Po
 
 Passons aux choses sérieuses. Pour ce 2e exercice vous expérimenterez avec un des algorithmes les plus connus en informatique. Comme beaucoup d'algorithmes, son fonctionnement peut sembler obscur à première vue. Ce n'est qu'en l'implémentant que vous aurez une vue d'ensemble sur son fonctionnement et peut-être alors vous réaliserez que la logique est plutôt simple. C'est d'ailleurs ce qui en fait son efficacité.
 
+### Contexte
 ![Disjktra_photo](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Edsger_Wybe_Dijkstra.jpg/180px-Edsger_Wybe_Dijkstra.jpg)
 
 En 1959, [E. W. Dijkstra](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra) (1930-2002), encore à ce jour une des figures ayant le plus influencé les sciences informatiques, s'est attaqué à un problème classique en optimisation, le [problème du plus court chemin](https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_plus_court_chemin). C'est un problème dont les applications sont très larges, répondant à des questions toujours actuelles comme:
@@ -63,7 +82,7 @@ villes et le réseau routier qui les lient. On propose dans cet exercice d’imp
 ![animation_dijkstra](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
 > Un exemple de dijsktra en action, dans un contexte ou les distances entre les points sont toujours de "1".
 
-Explication de l’algorithme :
+### Explication de l’algorithme :
 Soit le réseau routier donné par la *Figure 1*. Les villes sont données par les nœuds (A-G, E, S). Chaque route
 est représentée par un arc orienté qui donne le sens de circulation et la distance entre les deux villes
 connectées. On cherche, à travers cet exemple, de trouver le plus court chemin de la ville E à S.
@@ -73,6 +92,7 @@ connectées. On cherche, à travers cet exemple, de trouver le plus court chemin
 
 Pour résoudre ce problème, Dijkstra s’est basé sur le principe suivant : Si le plus court chemin de  <img src="https://render.githubusercontent.com/render/math?math=E"> à  <img src="https://render.githubusercontent.com/render/math?math=S"> passe respectivement par deux villes notées <img src="https://render.githubusercontent.com/render/math?math=S_1"> et <img src="https://render.githubusercontent.com/render/math?math=S_2"> alors le segment qui lie  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à  <img src="https://render.githubusercontent.com/render/math?math=S_2"> est le plus court chemin de  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à <img src="https://render.githubusercontent.com/render/math?math=S_2">. Le plus court chemin peut être ainsi construit de proche en proche en choisissant à chaque étape un sommet  <img src="https://render.githubusercontent.com/render/math?math=S_i"> tel que la longueur allant de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_i"> est connu être provisoirement la plus courte possible. 
 
+### Pseudocode de Dijkstra
 L’algorithme de Dijkstra est structuré suivant le pseudocode suivant :
 
 - Etape 1 (Phase d’initialisation) : On considère un tableau **distances** dont la taille est le nombre de nœuds du réseau; il représente la plus courte distance trouvée *jusqu’à maintenant* entre <img src="https://render.githubusercontent.com/render/math?math=E"> et ce nœud. On met la case correspondante au sommet <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=0"> (la distance entre <img src="https://render.githubusercontent.com/render/math?math=E"> et lui-même est nulle) et les autres à <img src="https://render.githubusercontent.com/render/math?math=-1"> pour dire qu’on n’a pas encore trouvé comment se rendre à ce nœud, et sera considéré comme une distance infinie dans l’algorithme. 
@@ -84,12 +104,14 @@ L’algorithme de Dijkstra est structuré suivant le pseudocode suivant :
       - mettreAJourDistance (<img src="https://render.githubusercontent.com/render/math?math=S_1">, <img src="https://render.githubusercontent.com/render/math?math=S_2">), qui vérifie si passer par <img src="https://render.githubusercontent.com/render/math?math=S_1"> permet de réduire la longueur du trajet allant à <img src="https://render.githubusercontent.com/render/math?math=S_2">, et modifie distances si c’est le cas.
   - Étape 4 : Enlever <img src="https://render.githubusercontent.com/render/math?math=S_1"> de **nœuds**; le tableau **distances** contient actuellement la distance
 minimale de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_1">. 
-    
+ 
+### Exemple d'application de l'algorithme pas à pas
 L’application pas à pas de l’algorithme sur l’exemple de la *Figure 1* est donnée par la *Figure 2*. Chaque ligne représente le même tableau **distances** (tableau 1D) à une itération différente de la boucle dans l’algorithme. Les cases en bleu (dont la valeur est omise sur la figure) conservent la valeur précédente, ce sont les cases où la distance est déjà minimale. La lettre entre parenthèses indique le sommet précédent duquel on arrive pour aller à ce nœud, et en gras est indiqué le nœud sélectionné comme étant le plus proche de **E** (à l’étape 2 de l’algorithme).  
 
 ![exemple_algo](./images/exemple_algo_dijsktra.png)
 
-Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (liste 2D). La structure *Tableau* est utilisée pour représenter les données suivantes : 
+### Structure du code
+Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (lsite 2D); voir le fichier *ex1.py*, qui vous est fourni. La structure *Tableau* est utilisée pour représenter les données suivantes : 
   - *distances* : distances calculée des différents nœuds par rapport à la source (est mis à jour graduellement en fonction des nouveaux chemins trouvés). On attribue la valeur -1 pour un chemin pas encore trouvé (distance infinie dans la *Figure 2*).
   - *predecesseurs* : le prédécesseur de chaque ville dans le chemin le plus court trouvé jusqu’à maintenant. Un predecesseur non encore défini est représentée par la valeur -1, la source elle-même n’ayant pas de prédécesseur aura aussi la valeur -1.
   - *nœuds* : un tableau pour représenter l’ensemble **noeuds** défini dans le pseudocode de l’algorithme de Dijkstra présenté précédamment. Comme il sert à représenter un ensemble, au sens mathématique, l’ordre des éléments dans ce tableau n’a pas d’importance. Les valeurs dans cet ensemble sont les indices dans les tableaux *distances* et *predecesseurs*. 
@@ -99,19 +121,12 @@ La structure *Matrice* sert à représenter la matrice des poids, c’est-à-dir
 Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, plutôt que des lettres comme dans l’exemple ci-dessus. À titre d’exemple, en considérant les nœuds de la *Figure 1* en ordre alphabétique, l’élément d’indice *0* est le nœud *A*. 
   
 
-
-Directives particulières
-* Dans chaque programme vous pouvez ajouter d’autres fonctions à celles décrites dans l’énoncé, ainsi que
-d’autres structures (et sous-structures), pour améliorer la lisibilité et suivre le principe DRY (Don’t Repeat
-Yourself). À chaque endroit où vous remarquez une duplication de code (vous avez écrit les mêmes
-opérations plus d’une fois) et qu’il n’est pas possible de l’éliminer avec ce qui a été vu en cours, indiquez-le
-en commentaire.
-* Il est interdit d’afficher directement ou indirectement dans les fonctions décrites si la description n’indique
-pas d’affichage.
-* Respecter le guide de codage, les points pertinents pour ce travail sont donnés en annexe à la fin.
-
-
 ## Partie 2.1: Ajoutons un peu de vérifications
+
+## Annexe: Guide et normes de codage
+
+#### Convention de noms
+
 
 ### correction_tp_3
 [corrigé_tp_3](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
