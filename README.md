@@ -106,6 +106,8 @@ La structure *Matrice* sert à représenter la matrice des poids, c’est-à-dir
 Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, plutôt que des lettres comme dans l’exemple ci-dessus. À titre d’exemple, en considérant les nœuds de la *Figure 1* en ordre alphabétique, l’élément d’indice *0* est le nœud *A*. 
 
 ## Partie 2.1: Ajoutons un peu de vérifications
+Il est primordial de baliser les entrées (inputs utilisateur comme le input() de python ou une lecture de fichier) possibles d'un programme afin de limiter les erreurs pendant l'exécution ou des états incohérent/non prévus en raison de valeurs incorrectes,
+
 
 ## Annexe: Guide et normes de codage
 
