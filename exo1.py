@@ -1,5 +1,5 @@
 # TODO Fonction retournant les séquences à trier, lues à partir d'un fichier
-def lireFichier():
+def lire_fichier():
     chemin = "./"
     nom = "listeDeNombres.txt"
 
@@ -14,7 +14,7 @@ def lireFichier():
     return contenu
 
 # TODO Fonction écrivant les séquences triées dans un fichier spécifié
-def sauvegarderSequencesTriees(chemin, nom, sequencesTriees):
+def sauvegarder_sequences_triees(chemin, nom, sequencesTriees):
     ...
     # Ouvrir le fichier en mode écriture à l'aide d'un context manager
 
@@ -40,8 +40,6 @@ def fusionner(gauche, droite):
     # Si le deuxième tableau (droite) est vide, alors rien n'a besoin d'être fusionné. 
     # Retourner le premier tableau (gauche) comme étant le résultat
 
-
-
     resultat = []
     indexGauche = indexDroite = 0
 
@@ -53,26 +51,14 @@ def fusionner(gauche, droite):
         # droite ou soit du tableau gauche
 
 
-
-
-
-
-
         # Si la fin de n'importe lequel des deux tableaux est atteinte,
         # ajouter directement tous les éléments restants de l'autre tableau
         # au tableau résultat, et terminer la boucle.
 
-
-
-
-
-
-
-
     return resultat
 
 # TODO Fonction d'entrée du tri fusion
-def triFusion(sequenceDeNombre):
+def tri_fusion(sequenceDeNombre):
     ...
     # Si le tableau (sequenceDeNombre) contient moins de 2 éléments, retourner directement le tableau
     # comme étant le résultat de la fonction
@@ -84,44 +70,44 @@ def triFusion(sequenceDeNombre):
 
     # Trier le tableau en séparant récursivement le tableau en 2 parties égales
     # qui seront triées et finalement fusionnées ensemble dans le résultat final
-    # INDICE: Passer à chaque paramètres de la fonction fusionner la fonction triFusion
+    # INDICE: Passer à chaque paramètres de la fonction fusionner la fonction tri_fusion
     # avec une partie (gauche ou droite) de la séquence de nombre
 
 
 
 
 # NE PAS TOUCHER, C'EST UNE FONCTION DE TEST POUR VOUS AIDER À VALIDER VOS RÉSULTATS
-def testerResultat(sequencesATrier, sequencesTriees):
-    bonResultats = 0
+def tester_resultat(sequences_a_trier, sequences_triees):
+    bon_resultats = 0
 
-    for indice in range(len(sequencesTriees)):
-        test = sequencesATrier[indice][:] 
+    for indice in range(len(sequences_triees)):
+        test = sequences_a_trier[indice][:]
         test.sort() # C'est facile le Python ! 
-        if (test == sequencesTriees[indice]): 
-            bonResultats += 1
+        if (test == sequences_triees[indice]):
+            bon_resultats += 1
 
-    return bonResultats == len(sequencesATrier)
+    return bon_resultats == len(sequences_a_trier)
 
 # NE PAS TOUCHER AU MAIN
 if __name__ == '__main__':
-    sequencesATrier = lireFichier()
+    sequences_a_trier = lire_fichier()
 
     print("Les séquences à trier sont: ")
-    print(sequencesATrier)
+    print(sequences_a_trier)
 
-    sequencesTriees = []
+    sequences_triees = []
 
-    for sequence in sequencesATrier:
-        sequencesTriees.append(triFusion(sequence))
+    for sequence in sequences_a_trier:
+        sequences_triees.append(tri_fusion(sequence))
 
     print("Les séquences triées sont: ")
-    print(sequencesTriees)
+    print(sequences_triees)
 
-    estBon = testerResultat(sequencesATrier, sequencesTriees)
+    est_bon = tester_resultat(sequences_a_trier, sequences_triees)
 
-    if estBon:
+    if est_bon:
         print("Bravo, le tri est bon !")  
     else:
         print("Oups, le tri ne fonctionne pas")
     
-    sauvegarderSequencesTriees("./", "resultats.txt", sequencesTriees)
+    sauvegarder_sequences_triees("./", "resultats.txt", sequences_triees)
