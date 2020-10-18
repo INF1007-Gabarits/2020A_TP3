@@ -33,7 +33,7 @@ Les directives qui se retrouvent dans ce document n'ont pas toutes la même impo
 
 | 2 | Le nom des classes doit être en minuscules avec le premier caractère en majuscule, ainsi que le début de chaque nouveau mot. |
 |----|:----------------------------------------------------|
-|    | ``Ligne, SystemeAudio, PointDeControle ````         |
+|    | ```Ligne, SystemeAudio, PointDeControle ```         |
 |    | Cette façon d'écrire est communément appelée UpperCamelCase. C'est une pratique courante de la communauté des développeurs de tous langages. |
 
 
