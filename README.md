@@ -3,7 +3,7 @@
 
 # TP3
 
-[Directives particulières](https://github.com/INF1007-Gabarits/TP3#directives-particuli%C3%A8res)
+[Directives particulières](#directives-particuli%C3%A8res)
 
 
 <!--- TODO: Changer la date de remise en modifiant le URL--->
