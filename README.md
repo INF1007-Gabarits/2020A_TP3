@@ -3,9 +3,10 @@
 
 # TP3
 
-[Directives particulières](#directives-particuli%C3%A8res)
-[Partie 1: Introduction aux fonctions](#partie-1-introduction-aux-fonctions)
-[Partie 2: Dijskstra](#partie-2-dijskstra---amusons-nous-avec-un-classsique)
+- [Directives particulières](#directives-particuli%C3%A8res)
+- [Partie 1: Introduction aux fonctions](#partie-1-introduction-aux-fonctions)
+- [Partie 2: Dijskstra](#partie-2-dijskstra---amusons-nous-avec-un-classsique)
+- [Annexe: Guide et normes de codage]
 
 
 <!--- TODO: Changer la date de remise en modifiant le URL--->
@@ -122,6 +123,8 @@ Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, p
   
 
 ## Partie 2.1: Ajoutons un peu de vérifications
+
+## Annexe: Guide et normes de codage
 
 ### correction_tp_3
 [corrigé_tp_3](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
