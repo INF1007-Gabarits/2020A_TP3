@@ -126,5 +126,8 @@ Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, p
 
 ## Annexe: Guide et normes de codage
 
+#### Convention de noms
+
+
 ### correction_tp_3
 [corrigé_tp_3](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
