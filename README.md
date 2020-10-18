@@ -21,7 +21,7 @@ Yourself). À chaque endroit où vous remarquez une duplication de code (vous av
 opérations plus d’une fois) et qu’il n’est pas possible de l’éliminer avec ce qui a été vu en cours, indiquez-le
 en commentaire.
 * Afin de vous inciter à écrire du code de qualité nous introduisons dans ce TP des **normes de codage**. Plusieurs combinaisons de normes sont possibles et utilisées dans l'univers de la programmation. L'objectif n'est pas de définir quel ensemble de norme est supérieur/inférieur aux autres. L'intérêt est de choisir un ensemble de règle pour un projet/travail et d'être constant dans son application. L'ensemble de normes le plus utilisé en Python est le [PEP8 (Python enhancement proposal)](https://www.python.org/dev/peps/pep-0008/) décrit par l'auteur de python lui-même. L'avantage d'utiliser un IDE comme pycharm est qu'il est possible de le configurer pour vous indiquer lorsque vous ne respectez pas les conventions de PEP8. Votre configuration par défaut devrait fonctionner, néanmoins vous pouvez vous référer à [cette page](https://www.jetbrains.com/help/pycharm/tutorial-code-quality-assistance-tips-and-tricks.html) si ce n'est pas le cas des problèmes.
-* En extension aux normes de PEP8 nous avons rédigé quelques indications supplémentaires que vous devrez respecter au mieux.Les points pertinents pour ce travail sont donnés en annexe à la fin.
+* En extension aux normes de PEP8 nous avons rédigé quelques indications supplémentaires que vous devrez respecter au mieux. Les points pertinents pour ce travail sont donnés en annexe à la fin.
 
 
 ## Partie 1: Introduction aux fonctions
