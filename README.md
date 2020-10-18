@@ -3,6 +3,16 @@
 
 # TP3
 
+Directives particulières
+* Dans chaque programme vous pouvez ajouter d’autres fonctions à celles décrites dans l’énoncé, ainsi que
+d’autres structures (et sous-structures), pour améliorer la lisibilité et suivre le principe DRY (Don’t Repeat
+Yourself). À chaque endroit où vous remarquez une duplication de code (vous avez écrit les mêmes
+opérations plus d’une fois) et qu’il n’est pas possible de l’éliminer avec ce qui a été vu en cours, indiquez-le
+en commentaire.
+* Il est interdit d’afficher directement ou indirectement dans les fonctions décrites si la description n’indique
+pas d’affichage.
+* Respecter le guide de codage, les points pertinents pour ce travail sont donnés en annexe à la fin.
+
 <!--- TODO: Changer la date de remise en modifiant le URL--->
 #### :alarm_clock: [Date de remise](https://www.timeanddate.com/countdown/generic?iso=20201101T2359&p0=165&msg=Remise&font=cursive&csz=1#)
 
@@ -100,15 +110,7 @@ Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, p
   
 
 
-Directives particulières
-* Dans chaque programme vous pouvez ajouter d’autres fonctions à celles décrites dans l’énoncé, ainsi que
-d’autres structures (et sous-structures), pour améliorer la lisibilité et suivre le principe DRY (Don’t Repeat
-Yourself). À chaque endroit où vous remarquez une duplication de code (vous avez écrit les mêmes
-opérations plus d’une fois) et qu’il n’est pas possible de l’éliminer avec ce qui a été vu en cours, indiquez-le
-en commentaire.
-* Il est interdit d’afficher directement ou indirectement dans les fonctions décrites si la description n’indique
-pas d’affichage.
-* Respecter le guide de codage, les points pertinents pour ce travail sont donnés en annexe à la fin.
+
 
 
 ## Partie 2.1: Ajoutons un peu de vérifications
