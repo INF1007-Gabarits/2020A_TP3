@@ -4,6 +4,8 @@
 # TP3
 
 [Directives particulières](#directives-particuli%C3%A8res)
+[Partie 1: Introduction aux fonctions](#partie-1-introduction-aux-fonctions)
+[Partie 2: Dijskstra](#partie-2-dijskstra---amusons-nous-avec-un-classsique)
 
 
 <!--- TODO: Changer la date de remise en modifiant le URL--->
@@ -66,6 +68,7 @@ Toutefois, il existe une variété assez impressionante d'algorithmes de tri. Po
 
 Passons aux choses sérieuses. Pour ce 2e exercice vous expérimenterez avec un des algorithmes les plus connus en informatique. Comme beaucoup d'algorithmes, son fonctionnement peut sembler obscur à première vue. Ce n'est qu'en l'implémentant que vous aurez une vue d'ensemble sur son fonctionnement et peut-être alors vous réaliserez que la logique est plutôt simple. C'est d'ailleurs ce qui en fait son efficacité.
 
+### Contexte
 ![Disjktra_photo](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Edsger_Wybe_Dijkstra.jpg/180px-Edsger_Wybe_Dijkstra.jpg)
 
 En 1959, [E. W. Dijkstra](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra) (1930-2002), encore à ce jour une des figures ayant le plus influencé les sciences informatiques, s'est attaqué à un problème classique en optimisation, le [problème du plus court chemin](https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_plus_court_chemin). C'est un problème dont les applications sont très larges, répondant à des questions toujours actuelles comme:
@@ -79,7 +82,7 @@ villes et le réseau routier qui les lient. On propose dans cet exercice d’imp
 ![animation_dijkstra](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
 > Un exemple de dijsktra en action, dans un contexte ou les distances entre les points sont toujours de "1".
 
-Explication de l’algorithme :
+### Explication de l’algorithme :
 Soit le réseau routier donné par la *Figure 1*. Les villes sont données par les nœuds (A-G, E, S). Chaque route
 est représentée par un arc orientée qui donne le sens de circulation et la distance entre les deux villes
 connectés. On cherche à travers cet exemple de trouver le plus court chemin de la ville E à S.
@@ -89,6 +92,7 @@ connectés. On cherche à travers cet exemple de trouver le plus court chemin de
 
 Pour résoudre ce problème, Dijkstra s’est basé sur le principe suivant : Si le court chemin de  <img src="https://render.githubusercontent.com/render/math?math=E"> à  <img src="https://render.githubusercontent.com/render/math?math=S"> passe respectivement par deux villes notées <img src="https://render.githubusercontent.com/render/math?math=S_1"> et <img src="https://render.githubusercontent.com/render/math?math=S_2"> alors le segment qui lie  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à  <img src="https://render.githubusercontent.com/render/math?math=S_2"> est le plus court chemin de  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à <img src="https://render.githubusercontent.com/render/math?math=S_2">. Le plus court chemin peut être ainsi construit de proche en proche en choisissant à chaque étape un sommet  <img src="https://render.githubusercontent.com/render/math?math=S_i"> tel que la longueur allant de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_i"> est connu être provisoirement la plus courte possible. 
 
+### Pseudocode de Dijkstra
 L’algorithme de Dijkstra est structuré suivant le pseudocode suivant :
 
 - Etape 1 (Phase d’initialisation) : On considère un tableau **distances** dont la taille est le nombre de nœuds du réseau; il représente la plus courte distance trouvée *jusqu’à maintenant* entre <img src="https://render.githubusercontent.com/render/math?math=E"> et ce nœud. On met la case correspondante au sommet <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=0"> (la distance entre <img src="https://render.githubusercontent.com/render/math?math=E"> et lui-même est nulle) et les autres à <img src="https://render.githubusercontent.com/render/math?math=-1"> pour dire qu’on n’a pas encore trouvé comment se rendre à ce nœud, et sera considéré comme une distance infinie dans l’algorithme. 
@@ -100,11 +104,13 @@ L’algorithme de Dijkstra est structuré suivant le pseudocode suivant :
       - mettreAJourDistance (<img src="https://render.githubusercontent.com/render/math?math=S_1">, <img src="https://render.githubusercontent.com/render/math?math=S_2">), qui vérifie si passer par <img src="https://render.githubusercontent.com/render/math?math=S_1"> permet de réduire la longueur du trajet allant à <img src="https://render.githubusercontent.com/render/math?math=S_2">, et modifie distances si c’est le cas.
   - Étape 4 : Enlever <img src="https://render.githubusercontent.com/render/math?math=S_1"> de **nœuds**; le tableau **distances** contient actuellement la distance
 minimale de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_1">. 
-    
+ 
+### Exemple d'application de l'algorithme pas à pas
 L’application pas à pas de l’algorithme sur l’exemple de la *Figure 1* est donnée par la *Figure 2*. Chaque ligne représente le même tableau **distances** (tableau 1D) à une itération différente de la boucle dans l’algorithme. Les cases en bleu (dont la valeur est omise sur la figure) conservent la valeur précédente, ce sont les cases où la distance est déjà minimale. La lettre entre parenthèses indique le sommet précédent duquel on arrive pour aller à ce nœud, et en gras est indiqué le nœud sélectionné comme étant le plus proche de **E** (à l’étape 2 de l’algorithme).  
 
 ![exemple_algo](./images/exemple_algo_dijsktra.png)
 
+### Structure du code
 Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (lsite 2D); voir le fichier *ex1.py*, qui vous est fourni. La structure *Tableau* est utilisée pour représenter les données suivantes : 
   - *distances* : distances calculée des différents nœuds par rapport à la source (est mis à jour graduellement en fonction des nouveaux chemins trouvés). On attribue la valeur -1 pour un chemin pas encore trouvé (distance infinie dans la *Figure 2*).
   - *predecesseurs* : le prédécesseur de chaque ville dans le chemin le plus court trouvé jusqu’à maintenant. Un predecesseur non encore défini est représentée par la valeur -1, la source elle-même n’ayant pas de prédécesseur aura aussi la valeur -1.
@@ -114,10 +120,6 @@ La structure *Matrice* sert à représenter la matrice des poids, c’est-à-dir
 
 Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, plutôt que des lettres comme dans l’exemple ci-dessus. À titre d’exemple, en considérant les nœuds de la *Figure 1* en ordre alphabétique, l’élément d’indice *0* est le nœud *A*. 
   
-
-
-
-
 
 ## Partie 2.1: Ajoutons un peu de vérifications
 
