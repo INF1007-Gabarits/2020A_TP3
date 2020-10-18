@@ -17,7 +17,7 @@ Cette partie est une évolution du premier exercice du dernier TP (tri par séle
 ### Description: 
 Les problèmes de tri font partie des problèmes les plus célèbres en informatique. Il existe un nombre pratiquement infini d'algorithme permettant de trier des éléments en ordre croissant(ou autre), toutefois tous ne sont pas égaux. En effet, bien que chaque algorithme (fonctionnel) arrive à un résultat correct, certain sont beaucoup plus performant que d'autre. La performance n'est pas critique lorsque l'on trie des centaines, voire des milliers d'éléments... Mais quand on tombe dans les millions et plus, ça devient important !
 
-C'est là que l'algorithme de tri par fusion (merge sort) se démarque du tri par sélection. Bien que ce dernier fonctionne... Il est très lent à comparer du tri par fusion.
+C'est là que l'algorithme de tri par fusion (merge sort) se démarque du tri par sélection vu au dernier TP. Bien que ce dernier fonctionne... Il est très lent à comparer du tri par fusion.
 Cet algorithme n'est toutefois pas le plus rapide existant, mais il est une bonne introduction au monde de l'algorithmie. De plus, celui-ci utilise le principe de récursivité, qui est une notion importante à comprendre, ainsi que le principe de *diviser pour régner* qui est un *pattern* important en algorithmie.
 
 ![merge-sort](./images/Merge-Sort-Algorithm.png)
@@ -39,7 +39,7 @@ Voici une *tentative* d'explication de l'algorithme. Si ce n'est pas clair, une 
 ### Notes
 * Le fichier *listeDeNombres.txt* vous est fourni, et contient des lignes contenant des séquences de nombre à trier. Ces nombres sont séparés par des *espaces*, et les lignes par des *sauts de ligne*. La dernière ligne du fichier est une ligne vide.
 * Les résultats doivent être enregistrés dans le fichier *resultats.txt*, sous la même forme qu'ils sont présentés dans le fichier *listeDeNombres.txt* (mais triés !), soit une séquence de nombre (par ligne) séparés par des espaces, avec un saut de ligne à la fin.
-* Le *main* et la fonction de test *testerResultat(sequencesATrier, sequencesTriees)* n'ont pas besoin d'être modifié, seulement les fonctions *lireFichier()*, *sauvegarderSequencesTriees(chemin, nom, listeTriees)*, *fusionner(gauche, droite)*, et *triFusion(sequenceDeNombre)* doivent être modifiées.
+* Le *main* et la fonction de test *testerResultat(sequences_a_trier, sequences_triees)* n'ont pas besoin d'être modifié, seulement les fonctions *lire_fichier()*, *sauvegarder_sequences_triees(chemin, nom, liste_triees)*, *fusionner(gauche, droite)*, et *tri_fusion(sequence_de_nombre)* doivent être modifiées.
 * Des instructions textuelles vous sont données pour vous indiquer quels sont les changements à effectuer.
 
 ### Pour aller plus loin
@@ -65,13 +65,13 @@ villes et le réseau routier qui les lient. On propose dans cet exercice d’imp
 
 Explication de l’algorithme :
 Soit le réseau routier donné par la *Figure 1*. Les villes sont données par les nœuds (A-G, E, S). Chaque route
-est représentée par un arc orientée qui donne le sens de circulation et la distance entre les deux villes
-connectés. On cherche à travers cet exemple de trouver le plus court chemin de la ville E à S.
+est représentée par un arc orienté qui donne le sens de circulation et la distance entre les deux villes
+connectées. On cherche, à travers cet exemple, de trouver le plus court chemin de la ville E à S.
 
 ![reseau_routier](./images/ex_reseau_routier.png)
 
 
-Pour résoudre ce problème, Dijkstra s’est basé sur le principe suivant : Si le court chemin de  <img src="https://render.githubusercontent.com/render/math?math=E"> à  <img src="https://render.githubusercontent.com/render/math?math=S"> passe respectivement par deux villes notées <img src="https://render.githubusercontent.com/render/math?math=S_1"> et <img src="https://render.githubusercontent.com/render/math?math=S_2"> alors le segment qui lie  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à  <img src="https://render.githubusercontent.com/render/math?math=S_2"> est le plus court chemin de  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à <img src="https://render.githubusercontent.com/render/math?math=S_2">. Le plus court chemin peut être ainsi construit de proche en proche en choisissant à chaque étape un sommet  <img src="https://render.githubusercontent.com/render/math?math=S_i"> tel que la longueur allant de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_i"> est connu être provisoirement la plus courte possible. 
+Pour résoudre ce problème, Dijkstra s’est basé sur le principe suivant : Si le plus court chemin de  <img src="https://render.githubusercontent.com/render/math?math=E"> à  <img src="https://render.githubusercontent.com/render/math?math=S"> passe respectivement par deux villes notées <img src="https://render.githubusercontent.com/render/math?math=S_1"> et <img src="https://render.githubusercontent.com/render/math?math=S_2"> alors le segment qui lie  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à  <img src="https://render.githubusercontent.com/render/math?math=S_2"> est le plus court chemin de  <img src="https://render.githubusercontent.com/render/math?math=S_1"> à <img src="https://render.githubusercontent.com/render/math?math=S_2">. Le plus court chemin peut être ainsi construit de proche en proche en choisissant à chaque étape un sommet  <img src="https://render.githubusercontent.com/render/math?math=S_i"> tel que la longueur allant de <img src="https://render.githubusercontent.com/render/math?math=E"> à <img src="https://render.githubusercontent.com/render/math?math=S_i"> est connu être provisoirement la plus courte possible. 
 
 L’algorithme de Dijkstra est structuré suivant le pseudocode suivant :
 
@@ -89,7 +89,7 @@ L’application pas à pas de l’algorithme sur l’exemple de la *Figure 1* es
 
 ![exemple_algo](./images/exemple_algo_dijsktra.png)
 
-Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (lsite 2D); voir le fichier *ex1.py*, qui vous est fourni. La structure *Tableau* est utilisée pour représenter les données suivantes : 
+Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (liste 2D). La structure *Tableau* est utilisée pour représenter les données suivantes : 
   - *distances* : distances calculée des différents nœuds par rapport à la source (est mis à jour graduellement en fonction des nouveaux chemins trouvés). On attribue la valeur -1 pour un chemin pas encore trouvé (distance infinie dans la *Figure 2*).
   - *predecesseurs* : le prédécesseur de chaque ville dans le chemin le plus court trouvé jusqu’à maintenant. Un predecesseur non encore défini est représentée par la valeur -1, la source elle-même n’ayant pas de prédécesseur aura aussi la valeur -1.
   - *nœuds* : un tableau pour représenter l’ensemble **noeuds** défini dans le pseudocode de l’algorithme de Dijkstra présenté précédamment. Comme il sert à représenter un ensemble, au sens mathématique, l’ordre des éléments dans ce tableau n’a pas d’importance. Les valeurs dans cet ensemble sont les indices dans les tableaux *distances* et *predecesseurs*. 
