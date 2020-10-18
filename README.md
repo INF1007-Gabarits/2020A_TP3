@@ -3,9 +3,17 @@
 
 # TP3
 
-Directives particulières
+[Directives particulières](#Directives particulières)
+
+
+<!--- TODO: Changer la date de remise en modifiant le URL--->
+#### :alarm_clock: [Date de remise le Dimanche 1er novembre 23h59](https://www.timeanddate.com/countdown/generic?iso=20201101T2359&p0=165&msg=Remise&font=cursive&csz=1#)
+
+
+
+## Directives particulières
 * Dans chaque programme vous pouvez ajouter d’autres fonctions à celles décrites dans l’énoncé, ainsi que
-d’autres structures (et sous-structures), pour améliorer la lisibilité et suivre le principe DRY (Don’t Repeat
+d’autres structures (et sous-structures), pour améliorer la lisibilité et suivre le principe **DRY** (Don’t Repeat
 Yourself). À chaque endroit où vous remarquez une duplication de code (vous avez écrit les mêmes
 opérations plus d’une fois) et qu’il n’est pas possible de l’éliminer avec ce qui a été vu en cours, indiquez-le
 en commentaire.
@@ -13,8 +21,6 @@ en commentaire.
 pas d’affichage.
 * Respecter le guide de codage, les points pertinents pour ce travail sont donnés en annexe à la fin.
 
-<!--- TODO: Changer la date de remise en modifiant le URL--->
-#### :alarm_clock: [Date de remise le Dimanche 1er novembre 23h59](https://www.timeanddate.com/countdown/generic?iso=20201101T2359&p0=165&msg=Remise&font=cursive&csz=1#)
 
 ## Partie 1: Introduction aux fonctions
 Cette partie est une évolution du premier exercice du dernier TP (tri par sélection), et a pour but de vous préparer pour la partie 2 du TP !
