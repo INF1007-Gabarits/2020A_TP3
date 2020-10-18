@@ -106,8 +106,10 @@ La structure *Matrice* sert à représenter la matrice des poids, c’est-à-dir
 Pour la représentation des noeuds, on considère les indices de *0* à *n-1*, plutôt que des lettres comme dans l’exemple ci-dessus. À titre d’exemple, en considérant les nœuds de la *Figure 1* en ordre alphabétique, l’élément d’indice *0* est le nœud *A*. 
 
 ## Partie 2.1: Ajoutons un peu de vérifications
-Il est primordial de baliser les entrées (inputs utilisateur comme le input() de python ou une lecture de fichier) possibles d'un programme afin de limiter les erreurs pendant l'exécution ou des états incohérent/non prévus en raison de valeurs incorrectes,
-
+Il est primordial de baliser les entrées (inputs utilisateur comme le input() de python ou une lecture de fichier) possibles d'un programme afin de limiter les erreurs pendant l'exécution ou l'apparition d'états incohérent/non prévus en raison de valeurs incorrectes. Pour ce travail nous vous demandons d'ajouter ces deux éléments:
+- Notre implémentation de Dijkstra rencontre un problème lorsque le graphe est disjoint (pas tous les noeuds sont liés en un seul graphe). Pour pallier à ce problème nous rajouterons un test qui vérifie si une connection existe bel et bien entre les deux noeuds (une valeur positive pour le sommet associé dans le tableau distance. 
+- La matrice de poids doit respecter une forme bien spécifique afin que l'algorithme s'exécute correctement. Assurez-vous que les valeurs lues du fichier en entrée sont des entiers positifs (ou -1 pour indiquer qu'il n'y a pas de lien). Important de vérifier aussi que c'est bel et bien une matrice qui est lue, pour cela assurez-vous que les lignes de la matrice sont de même longueur. Pas besoin de vérifier la longueur des colonnes puisqu'un tableau 2D en python est formé d'une liste de listes horizontales.
+Référez-vous aux *TODO:* dans le code pour ajouter ces éléments.
 
 ## Annexe: Guide et normes de codage
 
