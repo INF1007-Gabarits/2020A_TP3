@@ -110,6 +110,8 @@ Il est primordial de baliser les entrées (inputs utilisateur comme le input() d
 - Notre implémentation de Dijkstra rencontre un problème lorsque le graphe est disjoint (pas tous les noeuds sont liés en un seul graphe). Pour pallier à ce problème nous rajouterons un test qui vérifie si une connection existe bel et bien entre les deux noeuds (une valeur positive pour le sommet associé dans le tableau distance. 
 - La matrice de poids doit respecter une forme bien spécifique afin que l'algorithme s'exécute correctement. Assurez-vous que les valeurs lues du fichier en entrée sont des entiers positifs (ou -1 pour indiquer qu'il n'y a pas de lien). Important de vérifier aussi que c'est bel et bien une matrice qui est lue, pour cela assurez-vous que les lignes de la matrice sont de même longueur. Pas besoin de vérifier la longueur des colonnes puisqu'un tableau 2D en python est formé d'une liste de listes horizontales.
 Référez-vous aux *TODO:* dans le code pour ajouter ces éléments.
+  - Pour tester ces éléments modifier le code du main afin qu'il lise la matrice à partir de poids-2.txt
+  - Vous pouvez modifier les valeurs dans le fichier afin de faire vos tests.
 
 ## Annexe: Guide et normes de codage
 - [Le guide maison](https://github.com/INF1007-Gabarits/Guide-codage-python) de normes supplémentaires à respecter
