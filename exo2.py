@@ -20,28 +20,28 @@ def est_dans(ensemble, element):
     return False
 
 
-def comparer_listes(tableauA, tableauB):
+def comparer_tableaux(tableau_a, tableau_b):
     print(
-        "Test a la ligne " + str(inspect.currentframe().f_lineno) + " : " + BON_SI_VRAI[len(tableauA) == len(tableauB)])
+        "Test a la ligne " + str(inspect.currentframe().f_lineno) + " : " + BON_SI_VRAI[len(tableau_a) == len(tableau_b)])
 
-    estPareil = True
-    for i in range(len(tableauA)):
-        if tableauA[i] != tableauB[i]:
-            estPareil = False
+    est_pareil = True
+    for i in range(len(tableau_a)):
+        if tableau_a[i] != tableau_b[i]:
+            est_pareil = False
 
-    print("Test a la ligne " + str(inspect.currentframe().f_lineno) + " : " + BON_SI_VRAI[estPareil])
+    print("Test a la ligne " + str(inspect.currentframe().f_lineno) + " : " + BON_SI_VRAI[est_pareil])
 
 
-def afficher_liste(nomTableau, tableau):
-    print("Affichage tableau: " + nomTableau)
+def afficher_tableau(nom_tableau, tableau):
+    print("Affichage tableau: " + nom_tableau)
 
     for elem in tableau:
         print("{0:4}".format(elem), end=" ")
     print()
 
 
-def afficher_matrice(nomMatrice, matrice):
-    print("Affichage du contenu de la matrice: " + nomMatrice)
+def afficher_matrice(nom_matrice, matrice):
+    print("Affichage du contenu de la matrice: " + nom_matrice)
     for line in matrice:
         for elem in line:
             print("{0:4}".format(elem), end=" ")
@@ -53,21 +53,21 @@ def afficher_matrice(nomMatrice, matrice):
 # region "Fonction à compléter"
 
 # 1- Lit la matrice poids (distances entre les villes) a partir d'un fichier. Retourne le contenu de la matrice lue
-def lire_poids(nomFichier):
-    # TODO: Lire le fichier et verifier que la lecture n'a pas fait d'erreur; affecter la valeur a ok selon s'il y a eu
-    #      une erreur ou non et retourner la matrice lue.  La matrice retournée n'a pas d'importance s'il y a eu une erreur.
-    #      Format du fichier: dimension sur une ligne puis les differents elements séparés par des "whitespaces".
+def lire_poids(nom_fichier):
+    # TODO: Lire le fichier et verifier que la lecture n'a pas fait d'erreur;
+    #  La matrice retournée n'a pas d'importance s'il y a eu une erreur.
     #
     # TODO : Ajouter une couche de vérification des données en entrée. Vérifier que toutes les lignes de la matrice
-    #                ont la même longeur et qu'il n'y a pas de valeurs incohérentes (autres que des entier positifs ou -1). Si la matrice est
-    #                non conforme, utilisez la fonction exit() pour terminer le programme après avoir notifié l'utilisateur. 
+    #  ont la même longeur et qu'il n'y a pas de valeurs incohérentes (autres que des entier positifs ou -1). Si la
+    #  matrice est non conforme, utilisez la fonction exit() pour terminer le programme après avoir notifié
+    #  l'utilisateur.
 
     return matrice_lue
 
 
 # 2- Initialise les structures pour appliquer l'algorithme de Dijkstra.
-def initialiser(noeudInitial, nNoeuds):
-    # TODO: Initialiser et retourne les tableaux distances, predecesseurs et noeuds, incluant leurs tailles.
+def initialiser(noeud_initial, n_noeuds):
+    # TODO: Initialiser et retourne les tableaux distances, predecesseurs et noeuds.
     #       Tel qu'indique dans l'enonce:
     #       Les distances sont initialisees a -1 sauf pour le noeud initial qui est a 0.
 
@@ -85,20 +85,20 @@ def trouver_element_plus_proche(distances, noeuds):
     return ...
 
 
-# 4 - Fait la mise à jour des distances et des predecesseurs si on permet de passer par parNoeud. Cette fonction ne
+# 4 - Fait la mise à jour des distances et des predecesseurs si on permet de passer par par_noeud. Cette fonction ne
 #     retourne rien elle modifie les paramètres référencés directement.
-def mettre_a_jour_distances(poids, distances, predecesseurs, noeuds, parNoeud):
-    # TODO: Pour chaque element de l'ensemble noeuds, vérifier si passer parNoeud pour y aller réduit la distance
-    #       par rapport à celle actuellement dans le tableau distances; si c'est le cas, modifie la distance pour
-    #       cette nouvelle valeur et change le prédécesseur de cet élément comme étant parNoeud.  Attention aux valeurs -1
-    #       dans les poids et les distances.  Voir la description dans l'énoncé pour plus de détails.
+def mettre_a_jour_distances(poids, distances, predecesseurs, noeuds, par_noeud):
+    # TODO: Pour chaque element de l'ensemble noeuds, vérifier si passer par_noeud pour y aller réduit la distance par
+    #  rapport à celle actuellement dans le tableau distances; si c'est le cas, modifie la distance pour cette
+    #  nouvelle valeur et change le prédécesseur de cet élément comme étant par_noeud.  Attention aux valeurs -1 dans
+    #  les poids et les distances.  Voir la description dans l'énoncé pour plus de détails.
     ...
 
 
-# 5- Affiche le plus court chemin, soit la liste des noeuds par lesquels il faut passer pour se rendre de la source
-#    a la destination. Suppose que l'algorithme a deja ete applique pour calculer les tableaux de distances et predecesseurs.
-#    Cette fonction ne retourne rien.
-def afficher_chemin_plus_proche(distances, predecesseurs, noeudSource, noeudDestination):
+# 5- Affiche le plus court chemin, soit la liste des noeuds par lesquels il faut passer pour se rendre de la source a
+# la destination. Suppose que l'algorithme a deja ete applique pour calculer les tableaux de distances et
+# predecesseurs. Cette fonction ne retourne rien.
+def afficher_chemin_plus_proche(distances, predecesseurs, noeud_source, noeud_destination):
     # TODO: Afficher le chemin similairement à l'exemple de sortie suivant:
     #       Le chemin le plus court de 4 vers 7 est:
     #       4 -> 2 -> 5 -> 7
@@ -114,7 +114,7 @@ BON_SI_VRAI = ["ERREUR", "BON"]
 
 
 def tester_trouver_element_plus_proche():
-    print("Test de trouveElementPlusProche:")
+    print("Test de trouve_element_plus_proche:")
 
     distances = [7, 2, -1, 5, 6]
     noeuds = [0, 1, 2, 3, 4]
@@ -138,9 +138,9 @@ def tester_mettre_a_jour_distances():
     predecesseurs_attendus = [-1, 0, 0, -1]
     mettre_a_jour_distances(poids, distances, predecesseurs, noeuds, 0)
     print("Test a la ligne " + str(inspect.currentframe().f_lineno) + " : Deux sous tests")
-    comparer_listes(distances, distances_attendues)
+    comparer_tableaux(distances, distances_attendues)
     print("Test a la ligne " + str(inspect.currentframe().f_lineno) + " : Deux sous tests")
-    comparer_listes(predecesseurs, predecesseurs_attendus)
+    comparer_tableaux(predecesseurs, predecesseurs_attendus)
     distances = distances_attendues
     predecesseurs = predecesseurs_attendus
 
@@ -150,18 +150,18 @@ def tester_mettre_a_jour_distances():
 
     mettre_a_jour_distances(poids, distances, predecesseurs, noeuds, 2)
     print("Test a la ligne " + str(inspect.currentframe().f_lineno) + " : ")
-    comparer_listes(distances, distances_attendues)
+    comparer_tableaux(distances, distances_attendues)
     print("Test a la ligne " + str(inspect.currentframe().f_lineno) + " : ")
-    comparer_listes(predecesseurs, predecesseurs_attendus)
+    comparer_tableaux(predecesseurs, predecesseurs_attendus)
     distances = distances_attendues
     predecesseurs = predecesseurs_attendus
 
-    # Un etat impossible dans l'algorithme, mais ceci permet de verifier si mettreAJourDistances verifie seulement les elements de l'ensemble noeuds.
+    # Un etat impossible dans l'algorithme, mais ceci permet de verifier si mettreAJourDistances verifie seulement
+    # les elements de l'ensemble noeuds.
     distances[0] = 10
     noeuds = [1, 2, 3]
     mettre_a_jour_distances(poids, distances, predecesseurs, noeuds, 2)
     print("Test a la ligne " + str(inspect.currentframe().f_lineno) + " : " + BON_SI_VRAI[distances[0] == 10])
-
 
 
 # endregion
@@ -195,6 +195,3 @@ if __name__ == '__main__':
 
     # TODO: Valider si un chemin entre les deux sommet existe
     # TODO: Afficher la solution, soit le plus court chemin allant de la source vers la destination.
-
-
-    
