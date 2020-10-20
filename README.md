@@ -96,7 +96,7 @@ L’application pas à pas de l’algorithme sur l’exemple de la *Figure 1* es
 ![exemple_algo](./images/exemple_algo_dijsktra.png)
 
 ### Structure du code
-Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (liste 2D); voir le fichier *ex1.py*, qui vous est fourni. La structure *Tableau* est utilisée pour représenter les données suivantes : 
+Pour coder cet algorithme, on définit deux structures, *Tableau* (liste 1D) et *Matrice* (liste 2D). La structure *Tableau* est utilisée pour représenter les données suivantes : 
 - *distances* : distances calculées des différents nœuds par rapport à la source (est mis à jour graduellement en fonction des nouveaux chemins trouvés). On attribue la valeur -1 pour un chemin pas encore trouvé (distance infinie dans la *Figure 2*).
 - *predecesseurs* : le prédécesseur de chaque ville dans le chemin le plus court trouvé jusqu’à maintenant. Un prédécesseur non encore défini est représenté par la valeur -1, la source elle-même n’ayant pas de prédécesseur aura aussi la valeur -1.
 - *nœuds* : un tableau pour représenter l’ensemble **noeuds** définis dans le pseudocode de l’algorithme de Dijkstra présenté précédemment. Comme il sert à représenter un ensemble, au sens mathématique, l’ordre des éléments dans ce tableau n’a pas d’importance. Les valeurs dans cet ensemble sont les indices dans les tableaux *distances* et *predecesseurs*. 
