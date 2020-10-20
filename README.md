@@ -41,9 +41,9 @@ Cette [vidéo](https://www.youtube.com/watch?v=4VqmGXwpLqc&ab_channel=MichaelSam
 En utilisant le principe de diviser pour régner, cet algorithme parvient à rapidement trier une séquence de nombre en ordre croissant. Les étapes, sous forme de commentaires, sont déjà placées pour vous dans le code.
 
 Voici une *tentative* d'explication de l'algorithme. Si ce n'est pas clair, une simple recherche sur Google avec les termes: *Tri fusion étape par étape* ou bien *How to merge sort* devrait répondre à toutes vos questions.
-1. Diviser la séquence de nombres en appelant récursivement la fonction de tri fusion. Cette fonction sépare le tableau reçu en 2, et fusionne les 2 parties une fois *triées*. Cette fonction atteint sa condition d'arrêt seulement quand le tableau reçu est de taille 1
-2. Le tri se passe dans la fonction *fusionner*. En effet, celle-ci reçoit 2 tableaux (de taille 1 ou plus) et place dans un tableau résultat les éléments des 2 tableaux reçus, en ordre croissant.
-3. Le tri se termine lorsque l'on revient au premier appel récursif, soit lorsque le tableau résultat a la même longueur que le tableau initial.
+1. Diviser la séquence de nombres en appelant récursivement la fonction de tri fusion. Cette fonction sépare la lsite reçue en 2, et fusionne les 2 parties une fois *triées*. Cette fonction atteint sa condition d'arrêt seulement quand la liste reçue est de taille 1
+2. Le tri se passe dans la fonction *fusionner*. En effet, celle-ci reçoit 2 listes (de taille 1 ou plus) et place dans une liste résultat les éléments des 2 listes reçues, en ordre croissant.
+3. Le tri se termine lorsque l'on revient au premier appel récursif, soit lorsque la liste résultat a la même longueur que la liste initiale.
 
 ### Notes
 * Le fichier *listeDeNombres.txt* vous est fourni, et contient des lignes contenant des séquences de nombre à trier. Ces nombres sont séparés par des *espaces*, et les lignes par des *sauts de ligne*. La dernière ligne du fichier est une ligne vide.
