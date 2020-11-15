@@ -1,0 +1,185 @@
+************* Module test
+test.py:68:2: W0511: TODO: - Les predecesseurs sont initialisés a -1. (fixme)
+test.py:72:2: W0511: TODO: - Noeuds doit etre initialise pour contenir toutes les valeurs de 0 a n_noeuds-1. (fixme)
+test.py:126:3: W0511: TODO: Trouver l'element le plus proche du noeud initial saisi par l'utilisateur. (fixme)
+test.py:129:4: W0511: TODO: Si tous les chemins possibles ont été évalués (aucun prochain element a visiter), sortir de la boucle (fixme)
+test.py:133:3: W0511: TODO: Mettre à jour les distances en vérifiant si c'est plus court de passer par le noeud le plus proche. (fixme)
+test.py:136:3: W0511: TODO: Retirer cet element le plus proche de l'ensemble noeuds. (fixme)
+test.py:12:0: C0303: Trailing whitespace (trailing-whitespace)
+test.py:51:47: C0303: Trailing whitespace (trailing-whitespace)
+test.py:56:61: C0303: Trailing whitespace (trailing-whitespace)
+test.py:57:0: C0303: Trailing whitespace (trailing-whitespace)
+test.py:76:0: C0303: Trailing whitespace (trailing-whitespace)
+test.py:79:0: C0301: Line too long (155/100) (line-too-long)
+test.py:82:52: C0303: Trailing whitespace (trailing-whitespace)
+test.py:90:0: C0303: Trailing whitespace (trailing-whitespace)
+test.py:91:0: C0301: Line too long (110/100) (line-too-long)
+test.py:94:52: C0303: Trailing whitespace (trailing-whitespace)
+test.py:106:0: C0301: Line too long (136/100) (line-too-long)
+test.py:108:0: C0301: Line too long (136/100) (line-too-long)
+test.py:111:0: C0301: Line too long (109/100) (line-too-long)
+test.py:112:0: C0301: Line too long (109/100) (line-too-long)
+test.py:114:0: C0301: Line too long (124/100) (line-too-long)
+test.py:118:52: C0303: Trailing whitespace (trailing-whitespace)
+test.py:125:0: C0325: Unnecessary parens after 'while' keyword (superfluous-parens)
+test.py:129:0: C0301: Line too long (123/100) (line-too-long)
+test.py:130:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
+test.py:133:0: C0301: Line too long (120/100) (line-too-long)
+test.py:134:0: C0301: Line too long (111/100) (line-too-long)
+test.py:139:0: C0303: Trailing whitespace (trailing-whitespace)
+test.py:148:0: C0304: Final newline missing (missing-final-newline)
+test.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+test.py:4:0: E0401: Unable to import 'numpy' (import-error)
+test.py:11:0: C0115: Missing class docstring (missing-class-docstring)
+test.py:13:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:16:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+test.py:21:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:24:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+test.py:29:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:32:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+test.py:37:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:40:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+test.py:45:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:48:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+test.py:53:0: C0115: Missing class docstring (missing-class-docstring)
+test.py:54:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:60:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:63:8: C0103: Variable name "AUCUN" doesn't conform to snake_case naming style (invalid-name)
+test.py:81:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:85:8: C0103: Variable name "AUCUN" doesn't conform to snake_case naming style (invalid-name)
+test.py:82:8: W0612: Unused variable 'poids' (unused-variable)
+test.py:85:8: W0612: Unused variable 'AUCUN' (unused-variable)
+test.py:87:34: W0612: Unused variable 'noeuds' (unused-variable)
+test.py:93:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:97:8: C0103: Variable name "AUCUN" doesn't conform to snake_case naming style (invalid-name)
+test.py:97:8: W0612: Unused variable 'AUCUN' (unused-variable)
+test.py:117:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:120:8: C0103: Variable name "AUCUN" doesn't conform to snake_case naming style (invalid-name)
+test.py:5:0: W0611: Unused randint imported from random (unused-import)
+test.py:4:0: C0411: third party import "import numpy as np" should be placed before "import exo1 as exo1_etudiant" (wrong-import-order)
+test.py:5:0: C0411: standard import "from random import randint" should be placed before "import numpy as np" (wrong-import-order)
+test.py:6:0: C0411: standard import "import unittest" should be placed before "import numpy as np" (wrong-import-order)
+test.py:7:0: C0411: standard import "import os" should be placed before "import numpy as np" (wrong-import-order)
+test.py:8:0: C0411: standard import "import sys" should be placed before "import numpy as np" (wrong-import-order)
+test.py:9:0: C0411: standard import "import copy" should be placed before "import numpy as np" (wrong-import-order)
+
+
+Report
+======
+98 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |2      |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |10     |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |0      |NC         |NC         |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    exo1 (test)
+    exo2 (test)
+    exo2_corrige (test)
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |100    |66.67 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|docstring |0      |0.00  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|comment   |8      |5.33  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|empty     |42     |28.00 |NC       |NC         |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |NC       |NC         |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |NC       |NC         |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |46     |NC       |NC         |
++-----------+-------+---------+-----------+
+|refactor   |0      |NC       |NC         |
++-----------+-------+---------+-----------+
+|warning    |11     |NC       |NC         |
++-----------+-------+---------+-----------+
+|error      |6      |NC       |NC         |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++---------------------------+------------+
+|message id                 |occurrences |
++===========================+============+
+|trailing-whitespace        |10          |
++---------------------------+------------+
+|missing-function-docstring |10          |
++---------------------------+------------+
+|line-too-long              |10          |
++---------------------------+------------+
+|wrong-import-order         |6           |
++---------------------------+------------+
+|fixme                      |6           |
++---------------------------+------------+
+|assignment-from-no-return  |5           |
++---------------------------+------------+
+|unused-variable            |4           |
++---------------------------+------------+
+|invalid-name               |4           |
++---------------------------+------------+
+|superfluous-parens         |2           |
++---------------------------+------------+
+|missing-class-docstring    |2           |
++---------------------------+------------+
+|unused-import              |1           |
++---------------------------+------------+
+|missing-module-docstring   |1           |
++---------------------------+------------+
+|missing-final-newline      |1           |
++---------------------------+------------+
+|import-error               |1           |
++---------------------------+------------+
+
+
+
+
+-----------------------------------
+Your code has been rated at 1.12/10
+

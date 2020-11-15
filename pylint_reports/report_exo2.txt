@@ -1,0 +1,173 @@
+************* Module exo2
+exo2.py:57:2: W0511: TODO: Lire le fichier et verifier que la lecture n'a pas fait d'erreur; (fixme)
+exo2.py:60:2: W0511: TODO : Ajouter une couche de vérification des données en entrée. Vérifier que toutes les lignes de la matrice (fixme)
+exo2.py:70:2: W0511: TODO: Initialiser et retourne les tableaux distances, predecesseurs et noeuds. (fixme)
+exo2.py:74:2: W0511: TODO: - Les predecesseurs sont initialisés a -1. (fixme)
+exo2.py:75:2: W0511: TODO: - Noeuds doit etre initialise pour contenir toutes les valeurs de 0 a nNoeuds-1. (fixme)
+exo2.py:82:2: W0511: TODO: Pour chaque element de la liste de noeuds, vérifier lequel a la plus petite valeur dans les distances et (fixme)
+exo2.py:91:2: W0511: TODO: Pour chaque element de l'ensemble noeuds, vérifier si passer par_noeud pour y aller réduit la distance par (fixme)
+exo2.py:102:2: W0511: TODO: Afficher le chemin similairement à l'exemple de sortie suivant: (fixme)
+exo2.py:174:2: W0511: TODO: Lire la matrice des poids à partir du fichier poids.txt et l'afficher dans le terminal. (fixme)
+exo2.py:176:2: W0511: TODO: Demander a l'utilsateur l'indice du noeud source, avec validation de l'entree. (fixme)
+exo2.py:178:2: W0511: TODO: Intialiser les tableaux de distances, predecesseurs et noeuds. (fixme)
+exo2.py:180:2: W0511: TODO: Tant qu'il reste des éléments dans l'ensemble noeuds: (fixme)
+exo2.py:181:3: W0511: TODO: Trouver l'element le plus proche du noeud initial saisi par l'utilisateur. (fixme)
+exo2.py:183:4: W0511: TODO: Si tous les chemins possibles ont été évalués (aucun prochain element a visiter), sortir de la boucle (fixme)
+exo2.py:185:3: W0511: TODO: Mettre à jour les distances en vérifiant si c'est plus court de passer par le noeud le plus proche. (fixme)
+exo2.py:187:3: W0511: TODO: Retirer cet element le plus proche de l'ensemble noeuds. (fixme)
+exo2.py:189:2: W0511: TODO: Afficher le contenu de distances. (fixme)
+exo2.py:191:2: W0511: TODO: Afficher le contenu de predecesseurs. (fixme)
+exo2.py:193:2: W0511: TODO: Demander a l'utilisateur un noeud destination different de la source, avec validation de l'entree (indiquer (fixme)
+exo2.py:196:2: W0511: TODO: Valider si un chemin entre les deux sommet existe (fixme)
+exo2.py:197:2: W0511: TODO: Afficher la solution, soit le plus court chemin allant de la source vers la destination. (fixme)
+exo2.py:4:0: C0301: Line too long (107/100) (line-too-long)
+exo2.py:7:0: C0301: Line too long (121/100) (line-too-long)
+exo2.py:25:0: C0301: Line too long (122/100) (line-too-long)
+exo2.py:32:0: C0301: Line too long (102/100) (line-too-long)
+exo2.py:55:0: C0301: Line too long (115/100) (line-too-long)
+exo2.py:60:0: C0301: Line too long (115/100) (line-too-long)
+exo2.py:61:0: C0301: Line too long (115/100) (line-too-long)
+exo2.py:62:0: C0301: Line too long (107/100) (line-too-long)
+exo2.py:80:0: C0301: Line too long (110/100) (line-too-long)
+exo2.py:82:0: C0301: Line too long (116/100) (line-too-long)
+exo2.py:88:0: C0301: Line too long (116/100) (line-too-long)
+exo2.py:91:0: C0301: Line too long (118/100) (line-too-long)
+exo2.py:92:0: C0301: Line too long (110/100) (line-too-long)
+exo2.py:93:0: C0301: Line too long (117/100) (line-too-long)
+exo2.py:98:0: C0301: Line too long (117/100) (line-too-long)
+exo2.py:99:0: C0301: Line too long (105/100) (line-too-long)
+exo2.py:123:0: C0301: Line too long (108/100) (line-too-long)
+exo2.py:127:0: C0301: Line too long (108/100) (line-too-long)
+exo2.py:159:0: C0301: Line too long (114/100) (line-too-long)
+exo2.py:164:0: C0301: Line too long (110/100) (line-too-long)
+exo2.py:183:0: C0301: Line too long (119/100) (line-too-long)
+exo2.py:185:0: C0301: Line too long (116/100) (line-too-long)
+exo2.py:193:0: C0301: Line too long (119/100) (line-too-long)
+exo2.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+exo2.py:15:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:28:4: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+exo2.py:35:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:43:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:56:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:65:11: E0602: Undefined variable 'matrice_lue' (undefined-variable)
+exo2.py:56:15: W0613: Unused argument 'nom_fichier' (unused-argument)
+exo2.py:69:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:77:11: E0602: Undefined variable 'distances' (undefined-variable)
+exo2.py:77:22: E0602: Undefined variable 'predecesseurs' (undefined-variable)
+exo2.py:77:37: E0602: Undefined variable 'noeuds' (undefined-variable)
+exo2.py:69:16: W0613: Unused argument 'noeud_initial' (unused-argument)
+exo2.py:69:31: W0613: Unused argument 'n_noeuds' (unused-argument)
+exo2.py:81:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:81:32: W0613: Unused argument 'distances' (unused-argument)
+exo2.py:81:43: W0613: Unused argument 'noeuds' (unused-argument)
+exo2.py:90:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:90:28: W0613: Unused argument 'poids' (unused-argument)
+exo2.py:90:35: W0613: Unused argument 'distances' (unused-argument)
+exo2.py:90:46: W0613: Unused argument 'predecesseurs' (unused-argument)
+exo2.py:90:61: W0613: Unused argument 'noeuds' (unused-argument)
+exo2.py:90:69: W0613: Unused argument 'par_noeud' (unused-argument)
+exo2.py:101:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:101:32: W0613: Unused argument 'distances' (unused-argument)
+exo2.py:101:43: W0613: Unused argument 'predecesseurs' (unused-argument)
+exo2.py:101:58: W0613: Unused argument 'noeud_source' (unused-argument)
+exo2.py:101:72: W0613: Unused argument 'noeud_destination' (unused-argument)
+exo2.py:116:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo2.py:130:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+
+Report
+======
+79 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |0      |NC         |NC         |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|method   |0      |NC         |NC         |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|function |11     |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |81     |40.70 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|docstring |1      |0.50  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|comment   |57     |28.64 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|empty     |60     |30.15 |NC       |NC         |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |NC       |NC         |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |NC       |NC         |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |36     |NC       |NC         |
++-----------+-------+---------+-----------+
+|refactor   |0      |NC       |NC         |
++-----------+-------+---------+-----------+
+|warning    |35     |NC       |NC         |
++-----------+-------+---------+-----------+
+|error      |4      |NC       |NC         |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++---------------------------+------------+
+|message id                 |occurrences |
++===========================+============+
+|line-too-long              |23          |
++---------------------------+------------+
+|fixme                      |21          |
++---------------------------+------------+
+|unused-argument            |14          |
++---------------------------+------------+
+|missing-function-docstring |11          |
++---------------------------+------------+
+|undefined-variable         |4           |
++---------------------------+------------+
+|missing-module-docstring   |1           |
++---------------------------+------------+
+|consider-using-enumerate   |1           |
++---------------------------+------------+
+
+
+
+
+------------------------------------
+Your code has been rated at -1.52/10
+

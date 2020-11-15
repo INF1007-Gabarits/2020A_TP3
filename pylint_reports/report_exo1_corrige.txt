@@ -1,0 +1,146 @@
+************* Module exo1_corrige
+exo1_corrige.py:1:2: W0511: TODO (fixme)
+exo1_corrige.py:16:2: W0511: TODO (fixme)
+exo1_corrige.py:32:2: W0511: TODO (fixme)
+exo1_corrige.py:73:2: W0511: TODO (fixme)
+exo1_corrige.py:11:0: C0301: Line too long (110/100) (line-too-long)
+exo1_corrige.py:23:0: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:26:53: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:34:85: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:39:86: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:75:0: C0301: Line too long (101/100) (line-too-long)
+exo1_corrige.py:96:41: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:97:46: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:98:45: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:98:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
+exo1_corrige.py:121:40: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:124:0: C0303: Trailing whitespace (trailing-whitespace)
+exo1_corrige.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+exo1_corrige.py:2:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo1_corrige.py:7:36: C0103: Variable name "f" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:9:8: C0103: Variable name "tableauDeLignes" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:17:0: C0103: Argument name "sequencesTriees" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:17:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo1_corrige.py:17:46: W0621: Redefining name 'sequencesTriees' from outer scope (line 110) (redefined-outer-name)
+exo1_corrige.py:22:12: W0621: Redefining name 'sequence' from outer scope (line 112) (redefined-outer-name)
+exo1_corrige.py:19:36: C0103: Variable name "f" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:33:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo1_corrige.py:45:4: C0103: Variable name "indexGauche" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:45:18: C0103: Variable name "indexDroite" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:55:12: C0103: Variable name "indexGauche" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:58:12: C0103: Variable name "indexDroite" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:74:0: C0103: Argument name "sequenceDeNombre" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:74:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo1_corrige.py:81:4: C0103: Variable name "milieuSequence" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:92:0: C0103: Argument name "sequencesATrier" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:92:0: C0103: Argument name "sequencesTriees" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:92:0: C0116: Missing function or method docstring (missing-function-docstring)
+exo1_corrige.py:92:20: W0621: Redefining name 'sequencesATrier' from outer scope (line 105) (redefined-outer-name)
+exo1_corrige.py:92:37: W0621: Redefining name 'sequencesTriees' from outer scope (line 110) (redefined-outer-name)
+exo1_corrige.py:93:4: C0103: Variable name "bonResultats" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:95:4: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+exo1_corrige.py:99:12: C0103: Variable name "bonResultats" doesn't conform to snake_case naming style (invalid-name)
+exo1_corrige.py:118:13: E0602: Undefined variable 'testerResulta_r' (undefined-variable)
+
+
+Report
+======
+60 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |0      |NC         |NC         |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|method   |0      |NC         |NC         |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|function |5      |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |66     |51.97 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|docstring |0      |0.00  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|comment   |33     |25.98 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|empty     |28     |22.05 |NC       |NC         |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |NC       |NC         |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |NC       |NC         |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |33     |NC       |NC         |
++-----------+-------+---------+-----------+
+|refactor   |0      |NC       |NC         |
++-----------+-------+---------+-----------+
+|warning    |8      |NC       |NC         |
++-----------+-------+---------+-----------+
+|error      |1      |NC       |NC         |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++---------------------------+------------+
+|message id                 |occurrences |
++===========================+============+
+|invalid-name               |14          |
++---------------------------+------------+
+|trailing-whitespace        |9           |
++---------------------------+------------+
+|missing-function-docstring |5           |
++---------------------------+------------+
+|redefined-outer-name       |4           |
++---------------------------+------------+
+|fixme                      |4           |
++---------------------------+------------+
+|line-too-long              |2           |
++---------------------------+------------+
+|undefined-variable         |1           |
++---------------------------+------------+
+|superfluous-parens         |1           |
++---------------------------+------------+
+|missing-module-docstring   |1           |
++---------------------------+------------+
+|consider-using-enumerate   |1           |
++---------------------------+------------+
+
+
+
+
+-----------------------------------
+Your code has been rated at 2.33/10
+
