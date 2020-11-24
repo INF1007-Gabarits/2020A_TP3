@@ -33,10 +33,24 @@ def timeout(s):
 
 class TestTriFusion(unittest.TestCase):
     
+    @timeout(3)
+    def executerTest(self, fonction, nom_fonction):
+        try:
+            return fonction()
+        except KeyboardInterrupt:
+            self.fail(
+                f'L\'appel fonction {nom_fonction} ne se termine pas --> Verifiez vos boucles')
+        except AssertionError as e:
+            raise e
+        except:
+            self.fail(
+                f'Une exception a été levée lors de l\'appel fonction {nom_fonction_testee}. Revérifier votre code.')
+
+    
     def test_deja_trie(self):
         a_trier = [0,1,2,3,4,5,6,7,8,9]
 
-        tri_etudiant = exo1_etudiant.tri_fusion(a_trier)
+        tri_etudiant = executer_test(exo1_etudiant.tri_fusion(a_trier), "tri_fusion")
         a_trier.sort()
 
         self.assertEqual(tri_etudiant, a_trier)
@@ -44,7 +58,7 @@ class TestTriFusion(unittest.TestCase):
     def test_repetition(self):
         a_trier = [1,1,1,1,1,1]
 
-        tri_etudiant = exo1_etudiant.tri_fusion(a_trier)
+        tri_etudiant = executer_test(exo1_etudiant.tri_fusion(a_trier), "tri_fusion")
         a_trier.sort()
 
         self.assertEqual(tri_etudiant, a_trier)
@@ -52,7 +66,7 @@ class TestTriFusion(unittest.TestCase):
     def test_repetition2(self):
         a_trier = [1,1,1,0,1,1]
 
-        tri_etudiant = exo1_etudiant.tri_fusion(a_trier)
+        tri_etudiant = executer_test(exo1_etudiant.tri_fusion(a_trier), "tri_fusion")
         a_trier.sort()
 
         self.assertEqual(tri_etudiant, a_trier)
@@ -60,7 +74,7 @@ class TestTriFusion(unittest.TestCase):
     def test_negatif(self):
         a_trier = [-5, -2, 1, 456, -34, 0]
 
-        tri_etudiant = exo1_etudiant.tri_fusion(a_trier)
+        tri_etudiant = executer_test(exo1_etudiant.tri_fusion(a_trier), "tri_fusion")
         a_trier.sort()
 
         self.assertEqual(tri_etudiant, a_trier)
@@ -68,12 +82,28 @@ class TestTriFusion(unittest.TestCase):
     def test_gros(self):
         a_trier = np.random.rand(500).tolist()
 
-        tri_etudiant = exo1_etudiant.tri_fusion(a_trier)
+        tri_etudiant = executer_test(exo1_etudiant.tri_fusion(a_trier), "tri_fusion")
         a_trier.sort()
 
         self.assertEqual(tri_etudiant, a_trier) 
 
 class TestDijkstra(unittest.TestCase):
+    
+    @timeout(3)
+    def executerTest(self, fonction, nom_fonction):
+        try:
+            return fonction()
+        except KeyboardInterrupt:
+            self.fail(
+                f'L\'appel fonction {nom_fonction} ne se termine pas --> Verifiez vos boucles')
+        except AssertionError as e:
+            raise e
+        except:
+            self.fail(
+                f'Une exception a été levée lors de l\'appel fonction {nom_fonction_testee}. Revérifier votre code.')
+
+    
+    
     def test_lire_poids(self):
 
         poids_attendus = exo2_corrige.lire_poids('poids.txt')    
@@ -109,7 +139,7 @@ class TestDijkstra(unittest.TestCase):
 
         distances, predecesseurs, noeuds = exo2_corrige.initialiser(noeud_initial, n_noeuds)
 
-        element_attendu = exo2_corrige.trouver_element_plus_proche(distances, predecesseurs)
+        element_attendu = test_fonction(exo2_corrige.trouver_element_plus_proche(distances, predecesseurs), "trouver_element_plus_proche")
         
         self.assertEqual(element_attendu, exo2_etudiant.trouver_element_plus_proche(distances, predecesseurs))
 
