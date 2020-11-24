@@ -1,42 +1,42 @@
 {
-    "tri_test_deja_trie": {
-      "name": "exo 1 : test_deja_trie",
+    "test_deja_trie": {
+      "name": "Partie 1 Tri: test_deja_trie",
       "points": 1
     },
-    "tri_test_repetition": {
-      "name": "exo 1 : test_repetition",
+    "test_repetition": {
+      "name": "Partie 1 Tri: test_repetition",
       "points": 1
     },
-    "tri_test_repetition2": {
-      "name": "exo 1 : test_repetition2",
+    "test_repetition2": {
+      "name": "Partie 1 Tri: test_repetition2",
       "points": 1
     },
-    "tri_test_negatif": {
-      "name": "exo 1 : test_negatif",
+    "test_negatif": {
+      "name": "Partie 1 Tri: test_negatif",
       "points": 1
     },
-    "tri_test_gros": {
-      "name": "exo 1 : test_gros",
-      "points": 1
-    },
-    "dijkstra_test_lire_poids": {
-      "name": "exo 2 : test_lire_poids",
-      "points": 1
-    },
-    "dijkstra_test_initialiser": {
-      "name": "exo 1 : test_initialiser",
-      "points": 1
-    },
-    "dijkstra_test_trouver_element_plus_proche": {
-      "name": "exo 2 : test_trouver_element_plus_proche",
+    "test_gros": {
+      "name": "Partie 1 Tri: test_gros",
       "points": 2
     },
-    "dijkstra_test_mettre_a_jour_distances": {
-      "name": "exo 2 : test_mettre_a_jour_distances",
+    "test_lire_poids": {
+      "name": "Partie 2 Dijskstra: test_lire_poids",
+      "points": 1
+    },
+    "test_initialiser": {
+      "name": "Partie 2 Dijskstra: test_initialiser",
+      "points": 1
+    },
+    "test_trouver_element_plus_proche": {
+      "name": "Partie 2 Dijskstra: test_trouver_element_plus_proche",
       "points": 2
     },
-    "dijkstra_test_predecesseurs_distances_final": {
-      "name": "exo 2 : test_predecesseurs_distances_final",
+    "test_mettre_a_jour_distances": {
+      "name": "Partie 2 Dijskstra: test_mettre_a_jour_distances",
+      "points": 2
+    },
+    "test_predecesseurs_distances_final": {
+      "name": "Partie 2 Dijskstra: test_predecesseurs_distances_final",
       "points": 3
     },
 
