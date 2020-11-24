@@ -2,8 +2,10 @@
 .github/workflows/pylint.yml
 .github/workflow/assignment_deadline.yml
 README.md
+test_assignment.py
 settings/files_to_update.txt
 settings/variables.txt
+settings/test_associations.json
 images/ex_reseau_routier.png
 images/exemple_algo_dijsktra.png
 images/Merge-Sort-Algorithm.png
