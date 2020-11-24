@@ -8,6 +8,29 @@ import os
 import sys
 import copy
 
+
+# Timeout
+def exit_function():
+    _thread.interrupt_main()
+
+
+def timeout(s):
+    def outer(fn):
+        def inner(*args, **kwargs):
+            timer = threading.Timer(s, exit_function)
+            timer.start()
+            try:
+                result = fn(*args, **kwargs)
+            finally:
+                timer.cancel()
+            return result
+
+        return inner
+
+    return outer
+
+
+
 class TestTriFusion(unittest.TestCase):
     
     def test_deja_trie(self):
