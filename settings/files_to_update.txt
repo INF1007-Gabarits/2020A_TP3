@@ -12,6 +12,5 @@ images/Merge-Sort-Algorithm.png
 poids_2_1.txt
 poids.txt
 listeDeNombres.txt
-test.py
 exo2_corrige.py
 exo1_corrige.py
