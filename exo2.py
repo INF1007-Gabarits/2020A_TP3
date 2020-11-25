@@ -74,7 +74,7 @@ def initialiser(noeud_initial, n_noeuds):
     # TODO: - Les predecesseurs sont initialisés a -1.
     # TODO: - Noeuds doit etre initialise pour contenir toutes les valeurs de 0 a nNoeuds-1.
 
-    return distances, predecesseurs, noeuds
+    return (0,1,2) #return distances, predecesseurs, noeuds
 
 
 # 3 - Trouve et retourne l'élément le plus proche de l'élément initial, selon le tableau actuel des distances.
