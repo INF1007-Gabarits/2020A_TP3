@@ -77,8 +77,7 @@ jobs:
 
           python3 -m pip install -q setuptools
           python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
-
-          pull_request_body="La correction du TP est effectuer avec un Pull Request Review. "
+          pull_request_body="La correction du TP est effectuée avec un Pull Request Review. "
           pull_request_body+="La branch master contient les commits effectués avant et après la date de remise. "
           pull_request_body+="La branch remise contient les commits effectués uniquement avant la date de remise. "
           pull_request_body+="La branch correction contient uniquement le premier commit et est utilisée comme branch de base pour le Pull Request. "

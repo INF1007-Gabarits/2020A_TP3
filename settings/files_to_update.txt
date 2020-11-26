@@ -1,6 +1,8 @@
-.github/workflows/assignment_tests.yml
+.github/workflows/assignment tests.yml
+.github/workflows/assignment_grading.yml
 .github/workflows/pylint.yml
-.github/workflow/assignment_deadline.yml
+.github/workflows/assignment_deadline.yml
+.github/workflows/verifications.yml
 README.md
 test_assignment.py
 settings/files_to_update.txt
@@ -12,6 +14,5 @@ images/Merge-Sort-Algorithm.png
 poids_2_1.txt
 poids.txt
 listeDeNombres.txt
-test.py
 exo2_corrige.py
 exo1_corrige.py
