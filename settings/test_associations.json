@@ -38,6 +38,5 @@
     "test_predecesseurs_distances_final": {
       "name": "Partie 2 Dijskstra: test_predecesseurs_distances_final",
       "points": 3
-    },
-
+    }
 }
