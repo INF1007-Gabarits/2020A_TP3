@@ -149,7 +149,7 @@ class TestDijkstra(unittest.TestCase):
             noeuds_attendus.append(i)
 
         resultat_etudiant = exo2_etudiant.initialiser(noeud_initial, n_noeuds)
-
+        resultat_etudiant[noeud_initial] = 0
         self.assertEqual((distances_attendues, predecesseurs_attendus, noeuds_attendus),
                          (resultat_etudiant[0], resultat_etudiant[1], resultat_etudiant[2]))
 
