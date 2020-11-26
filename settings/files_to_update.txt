@@ -2,6 +2,7 @@
 .github/workflows/assignment_grading.yml
 .github/workflows/pylint.yml
 .github/workflows/assignment_deadline.yml
+.github/workflows/verifications.yml
 README.md
 test_assignment.py
 settings/files_to_update.txt
