@@ -16,3 +16,4 @@ poids.txt
 listeDeNombres.txt
 exo2_corrige.py
 exo1_corrige.py
+requirements.txt
