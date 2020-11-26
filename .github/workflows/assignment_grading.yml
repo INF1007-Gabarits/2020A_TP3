@@ -8,67 +8,67 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Remove student write permissions
-        run: |
-          source settings/variables.txt
-
-          python3 -m pip install -q setuptools
-          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
-
-          python3 -m classroom_tools.student_repositories.access_permissions \
-            --token=${{ secrets.REPO_PAT }} \
-            --org_name="$org_name" \
-            --repo_filter="$repo_filter" \
-            --new_permission_level=pull
-
-      - name: Remove grading branch protection
-        run: |
-          source settings/variables.txt
-
-          python3 -m pip install -q setuptools
-          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
-
-          python3 -m classroom_tools.student_repositories.change_branch_protection \
-            --token=${{ secrets.REPO_PAT }} \
-            --org_name="$org_name" \
-            --repo_filter="$repo_filter" \
-            --branch="remise" \
-            --protect="False"
-
-      - name: Change default branch to grading branch
-        run: |
-          source settings/variables.txt
-
-          python3 -m pip install -q setuptools
-          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
-
-          python3 -m classroom_tools.student_repositories.change_default_branch \
-            --token=${{ secrets.REPO_PAT }} \
-            --org_name="$org_name" \
-            --repo_filter="$repo_filter" \
-            --branch="remise"
-
-      - uses: actions/checkout@v2
-      - name: Update students repos
-        run: |
-          source settings/variables.txt
-
-          python3 -m pip install -q setuptools
-          python3 -m pip install -q git+"${{ secrets.CLASSROOM_TOOLS_URL }}"
-
-          python3 -m classroom_tools.student_repositories.delete_workflows \
-            --token=${{ secrets.REPO_WORKFLOW_PAT }} \
-            --org_name="$org_name" \
-            --repo_filter="$repo_filter" \
-            --branch="remise"
-
-          python3 -m classroom_tools.student_repositories.sync_with_template_repository \
-            --template_repo_fullname="$GITHUB_REPOSITORY" \
-            --token="${{ secrets.REPO_WORKFLOW_PAT }}" \
-            --org_name="$org_name" \
-            --repo_filter="$repo_filter" \
-            --branch="remise"
+#      - uses: actions/checkout@v2
+#      - name: Remove student write permissions
+#        run: |
+#          source settings/variables.txt
+#
+#          python3 -m pip install -q setuptools
+#          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
+#
+#          python3 -m classroom_tools.student_repositories.access_permissions \
+#            --token=${{ secrets.REPO_PAT }} \
+#            --org_name="$org_name" \
+#            --repo_filter="$repo_filter" \
+#            --new_permission_level=pull
+#
+#      - name: Remove grading branch protection
+#        run: |
+#          source settings/variables.txt
+#
+#          python3 -m pip install -q setuptools
+#          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
+#
+#          python3 -m classroom_tools.student_repositories.change_branch_protection \
+#            --token=${{ secrets.REPO_PAT }} \
+#            --org_name="$org_name" \
+#            --repo_filter="$repo_filter" \
+#            --branch="remise" \
+#            --protect="False"
+#
+#      - name: Change default branch to grading branch
+#        run: |
+#          source settings/variables.txt
+#
+#          python3 -m pip install -q setuptools
+#          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
+#
+#          python3 -m classroom_tools.student_repositories.change_default_branch \
+#            --token=${{ secrets.REPO_PAT }} \
+#            --org_name="$org_name" \
+#            --repo_filter="$repo_filter" \
+#            --branch="remise"
+#
+#      - uses: actions/checkout@v2
+#      - name: Update students repos
+#        run: |
+#          source settings/variables.txt
+#
+#          python3 -m pip install -q setuptools
+#          python3 -m pip install -q git+"${{ secrets.CLASSROOM_TOOLS_URL }}"
+#
+#          python3 -m classroom_tools.student_repositories.delete_workflows \
+#            --token=${{ secrets.REPO_WORKFLOW_PAT }} \
+#            --org_name="$org_name" \
+#            --repo_filter="$repo_filter" \
+#            --branch="remise"
+#
+#          python3 -m classroom_tools.student_repositories.sync_with_template_repository \
+#            --template_repo_fullname="$GITHUB_REPOSITORY" \
+#            --token="${{ secrets.REPO_WORKFLOW_PAT }}" \
+#            --org_name="$org_name" \
+#            --repo_filter="$repo_filter" \
+#            --branch="remise"
 
       - uses: actions/checkout@v2
       - name: Create pull requests
