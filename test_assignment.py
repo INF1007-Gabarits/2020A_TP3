@@ -1,16 +1,16 @@
 import _thread
+import copy
+import os
+import sys
 import threading
 import time
+import unittest
+
+import numpy as np
 
 import exo1 as exo1_etudiant
 import exo2 as exo2_etudiant
 import exo2_corrige as exo2_corrige
-import numpy as np
-from random import randint
-import unittest
-import os
-import sys
-import copy
 
 
 # Timeout
@@ -37,7 +37,7 @@ def timeout(s):
 class TestTriFusion(unittest.TestCase):
     a_trier = []
 
-    @timeout(2)
+    @timeout(3)
     def executer_test(self, fonction, nom_fonction):
         try:
             return fonction()
@@ -150,18 +150,34 @@ class TestDijkstra(unittest.TestCase):
 
         resultat_etudiant = exo2_etudiant.initialiser(noeud_initial, n_noeuds)
         resultat_etudiant[1][noeud_initial] = 0
+        resultat_etudiant[2].sort()
         self.assertEqual((distances_attendues, predecesseurs_attendus, noeuds_attendus),
                          (resultat_etudiant[0], resultat_etudiant[1], resultat_etudiant[2]))
 
-    def test_trouver_element_plus_proche(self):
-        poids = exo2_corrige.lire_poids('poids.txt')
+    def test_trouver_element_plus_proche_noeud_initial_0(self):
+
+        n_noeuds = 8
+        noeud_initial = 0
+        AUCUN = -1
+
+        self.poids = exo2_corrige.lire_poids('poids.txt')
+        self.distances, self.predecesseurs, self.noeuds = exo2_corrige.initialiser(noeud_initial, n_noeuds)
+
+        element_attendu = exo2_corrige.trouver_element_plus_proche(self.distances, self.noeuds)
+
+        self.assertEqual(element_attendu,
+                         self.executer_test(self.trouver_element_plus_proche_etudiant, "trouver_element_plus_proche"))
+
+    def test_trouver_element_plus_proche_noeud_initial_2(self):
+
         n_noeuds = 8
         noeud_initial = 2
         AUCUN = -1
 
-        self.distances, self.predecesseurs, noeuds = exo2_corrige.initialiser(noeud_initial, n_noeuds)
+        self.poids = exo2_corrige.lire_poids('poids.txt')
+        self.distances, self.predecesseurs, self.noeuds = exo2_corrige.initialiser(noeud_initial, n_noeuds)
 
-        element_attendu = exo2_corrige.trouver_element_plus_proche(self.distances, self.predecesseurs)
+        element_attendu = exo2_corrige.trouver_element_plus_proche(self.distances, self.noeuds)
 
         self.assertEqual(element_attendu,
                          self.executer_test(self.trouver_element_plus_proche_etudiant, "trouver_element_plus_proche"))
@@ -191,13 +207,44 @@ class TestDijkstra(unittest.TestCase):
         self.par_noeud = element_plus_proche_2
         self.executer_test(self.mettre_a_jour_distances_etudiant, "mettre_a_jour_distances")
 
-        # exo2_etudiant.mettre_a_jour_distances(self.poids, self.distances, self.predecesseurs, self.noeuds, element_plus_proche_1)
-        # exo2_etudiant.mettre_a_jour_distances(self.poids, self.distances, self.predecesseurs, self.noeuds, element_plus_proche_2)
-
         self.assertEqual((self.distances, self.predecesseurs, self.noeuds),
                          (distances_attendues, predecesseurs_attendus, noeuds_attendus))
 
-    def test_predecesseurs_distances_final(self):
+    def test_predecesseurs_distances_final_noeud_initial_0(self):
+        self.poids = exo2_etudiant.lire_poids('poids.txt')
+        noeud_initial = 0
+        AUCUN = -1
+        self.distances, self.predecesseurs, self.noeuds = exo2_etudiant.initialiser(noeud_initial, 8)
+        predecesseurs_attendus = [0, 2, 7, 0, 7, 6, 3, 3]
+        distances_attendues = [0, 12, 11, 2, 11, 10, 6, 9]
+
+        start_time = time.time()
+        timeout = 3
+        while (self.noeuds):
+            # Pour forcer un timeout si boucle infinie
+            current_time = time.time()
+            elapsed_time = current_time - start_time
+            if elapsed_time > timeout:
+                self.fail(
+                    f'Les fonctions que vous avez defini pour dijkstra forcent une boucle infinie a l\'algorithme. Vos returns ou modifications de variables sont fautifs.')
+                break
+
+            # 	TODO: Trouver l'element le plus proche du noeud initial saisi par l'utilisateur.
+            self.element_plus_proche = self.executer_test(self.trouver_element_plus_proche_etudiant,
+                                                          "trouver_element_plus_proche")
+
+            if (self.element_plus_proche == AUCUN):
+                break
+
+            self.par_noeud = self.element_plus_proche
+            self.executer_test(self.mettre_a_jour_distances_etudiant, "mettre_a_jour_distances")
+
+            if self.element_plus_proche in self.noeuds:
+                self.noeuds.remove(self.element_plus_proche)
+
+        self.assertEqual((distances_attendues, predecesseurs_attendus), (self.distances, self.predecesseurs))
+
+    def test_predecesseurs_distances_final_noeud_initial_3(self):
         self.poids = exo2_corrige.lire_poids('poids.txt')
         noeud_initial = 3
         AUCUN = -1
@@ -214,28 +261,30 @@ class TestDijkstra(unittest.TestCase):
             if elapsed_time > timeout:
                 self.fail(
                     f'Les fonctions que vous avez defini pour dijkstra forcent une boucle infinie a l\'algorithme. Vos returns ou modifications de variables sont fautifs.')
-                print(f'Les fonctions que vous avez defini pour dijkstra forcent une boucle infinie a l\'algorithme. Vos returns ou modifications de variables sont fautifs.')
+                print(
+                    f'Les fonctions que vous avez defini pour dijkstra forcent une boucle infinie a l\'algorithme. Vos returns ou modifications de variables sont fautifs.')
                 break
 
             # 	TODO: Trouver l'element le plus proche du noeud initial saisi par l'utilisateur.
             self.element_plus_proche = self.executer_test(self.trouver_element_plus_proche_etudiant,
                                                           "trouver_element_plus_proche")
-            # exo2_etudiant.trouver_element_plus_proche(self.distances, self.noeuds)
 
-            #   TODO: Si tous les chemins possibles ont été évalués (aucun prochain element a visiter), sortir de la boucle
             if (self.element_plus_proche == AUCUN):
                 break
 
-            # 	TODO: Mettre à jour les distances en vérifiant si c'est plus court de passer par le noeud le plus proche.
-            # exo2_etudiant.mettre_a_jour_distances(self.poids, self.distances, self.predecesseurs, self.noeuds, element_plus_proche)
             self.par_noeud = self.element_plus_proche
             self.executer_test(self.mettre_a_jour_distances_etudiant, "mettre_a_jour_distances")
 
-            # 	TODO: Retirer cet element le plus proche de l'ensemble noeuds.
             if self.element_plus_proche in self.noeuds:
                 self.noeuds.remove(self.element_plus_proche)
 
-            self.assertEqual((self.distances, self.predecesseurs), (distances_attendues, predecesseurs_attendus))
+        self.assertEqual((self.distances, self.predecesseurs), (distances_attendues, predecesseurs_attendus))
+
+    def test_affichage_chemin_plus_court(self):
+        self.poids = exo2_corrige.lire_poids('poids.txt')
+        noeud_initial = 3
+        AUCUN = -1
+        self.distances, self.predecesseurs, self.noeuds = exo2_corrige.initialiser(noeud_initial, 8)
 
 
 if __name__ == '__main__':
