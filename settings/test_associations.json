@@ -27,16 +27,24 @@
     "name": "Partie 2 Dijskstra: test_initialiser",
     "points": 1
   },
-  "test_trouver_element_plus_proche": {
-    "name": "Partie 2 Dijskstra: test_trouver_element_plus_proche",
+    "test_trouver_element_plus_proche_noeud_initial_0": {
+    "name": "Partie 2 Dijskstra: test_trouver_element_plus_proche_noeud_initial_0",
     "points": 2
+  },
+    "test_trouver_element_plus_proche_noeud_initial_2": {
+    "name": "Partie 2 Dijskstra: test_trouver_element_plus_proche_noeud_initial_2",
+    "points": 1
   },
   "test_mettre_a_jour_distances": {
     "name": "Partie 2 Dijskstra: test_mettre_a_jour_distances",
     "points": 2
   },
-  "test_predecesseurs_distances_final": {
-    "name": "Partie 2 Dijskstra: test_predecesseurs_distances_final",
-    "points": 3
+  "test_predecesseurs_distances_final_noeud_initial_0": {
+    "name": "Partie 2 Dijskstra: test_predecesseurs_distances_final_noeud_initial_0",
+    "points": 2
+  },
+    "test_predecesseurs_distances_final_noeud_initial_3": {
+    "name": "Partie 2 Dijskstra: test_predecesseurs_distances_final_noeud_initial_3",
+    "points": 1
   }
 }
