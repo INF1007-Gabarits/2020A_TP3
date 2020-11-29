@@ -280,13 +280,6 @@ class TestDijkstra(unittest.TestCase):
 
         self.assertEqual((self.distances, self.predecesseurs), (distances_attendues, predecesseurs_attendus))
 
-    def test_affichage_chemin_plus_court(self):
-        self.poids = exo2_corrige.lire_poids('poids.txt')
-        noeud_initial = 3
-        AUCUN = -1
-        self.distances, self.predecesseurs, self.noeuds = exo2_corrige.initialiser(noeud_initial, 8)
-
-
 if __name__ == '__main__':
     if not os.path.exists('logs'):
         os.mkdir('logs')
