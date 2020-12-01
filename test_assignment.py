@@ -207,7 +207,7 @@ class TestDijkstra(unittest.TestCase):
         self.par_noeud = element_plus_proche_2
         self.executer_test(self.mettre_a_jour_distances_etudiant, "mettre_a_jour_distances")
 
-        self.predecesseurs[2] = 0
+        self.predecesseurs[noeud_initial] = 0
 
         self.assertEqual((self.distances, self.predecesseurs, self.noeuds),
                          (distances_attendues, predecesseurs_attendus, noeuds_attendus))
@@ -244,7 +244,7 @@ class TestDijkstra(unittest.TestCase):
             if self.element_plus_proche in self.noeuds:
                 self.noeuds.remove(self.element_plus_proche)
 
-        self.predecesseurs[3] = 0
+        self.predecesseurs[noeud_initial] = 0
         self.assertEqual((distances_attendues, predecesseurs_attendus), (self.distances, self.predecesseurs))
 
     def test_predecesseurs_distances_final_noeud_initial_3(self):
